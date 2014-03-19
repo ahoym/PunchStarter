@@ -1,0 +1,17 @@
+development:
+  adapter: postgresql
+  database: punch_starter_dev
+  host: localhost
+  pool: 5
+  timeout: 5000
+  username: postgres
+# production: 
+#   adapter: postgresql
+#   database: postgres
+#   pool: 5
+#   timeout: 5000
+# test: 
+#   adapter: postgresql
+#   database: postgres
+#   pool: 5
+#   timeout: 5000
