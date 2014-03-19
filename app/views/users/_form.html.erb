@@ -1,0 +1,15 @@
+<form action="<%= users_url %>" method="POST">
+	<%= input_auth_token %>
+	<input type="hidden" name="_method" value="<%= verb %>">
+	
+	<label for="email">Email</label><br>
+	<input type="email" name="user[email]" value="<%= user.email %>"><br>
+
+	<label for="name">What's your name?</label><br>
+	<input type="text" name="user[name]" value="<%= user.name %>"><br>
+	
+	<label for="password">Email</label><br>
+	<input type="password" name="user[password]"><br>
+	
+	<p><input type="submit" value="<%= submit_btn_value %>"></p>
+</form>
