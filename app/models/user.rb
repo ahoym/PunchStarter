@@ -16,6 +16,7 @@ class User < ActiveRecord::Base
   before_validation :ensure_session_token
   validates :name, :email, :password_digest, :session_token, presence: true
   validates :name, :email, uniqueness: true
+  validates :session_token, presence: true, uniqueness: true
 
   def is_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)
@@ -33,6 +34,7 @@ class User < ActiveRecord::Base
   def reset_session_token!
     self.session_token = User.generate_session_token
     self.save!
+    self.session_token
   end
 
   def self.generate_session_token
