@@ -13,7 +13,30 @@
 			
 	    <ul class="nav navbar-nav navbar-right user-links">
 	      <% if logged_in? %>
-	        <li><%= link_to("Log out", session_url, { method: :delete})%></li>
+	        <li class="dropdown me-drop-down">
+						<a href="#" class="dropdown-toggle" data-toggle="dropdown">
+							Me
+							<b class="caret"></b>
+						</a>
+						<div class="dropdown-menu row">
+							<div class="col-xs-3">
+								<p><strong>My Stuff</strong></p>
+									<ul class="my-stuff-links">
+										<li><a href="#">Messages</a></li>
+										<li><a href="#">Activity</a></li>
+										<li><a href="#">Starred projects</a></li>
+									</ul><br>
+								<p><strong>Account</strong></p>
+									<ul class="account-links">
+										<li><a href="<%= user_url(current_user)%>">Profile</a></li>
+										<li><a href="#">Backer history</a></li>
+										<li><a href="#">Settings</a></li>
+										<li><a href="#">Find friends</a></li>
+									</ul><br>
+							</div>
+							<div class="logout-btn" style="clear:both"><p> You're logged in as <%= current_user.name%><br> <%= link_to("Log out", session_url, { method: :delete})%></p></div>
+						</div>
+					</li>
 				<% else %>
 					<li><a href="<%= new_user_url %>">Sign Up</a></li>
 					<li><a href="<%= new_session_url %>">Log In</a></li>

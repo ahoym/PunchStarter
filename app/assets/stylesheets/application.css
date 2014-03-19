@@ -14,18 +14,3 @@
  */
 
 @import "bootstrap";
-
-ul.primary-links {
-	padding: 0px 25px;
-	border-right-style: solid;
-	border-right-width: 1px;
-	border-right-color: lightgray;
-}
-
-ul.primary-links li a{
-	font-weight: bold;
-}
-
-ul.user-links li a{
-	color:#000;
-}

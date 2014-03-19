@@ -1,0 +1,38 @@
+ul.primary-links {
+	padding: 0px 25px;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-right-color: lightgray;
+}
+
+ul.primary-links li a{
+	font-weight: bold;
+}
+
+ul.user-links li a{
+	color:#000;
+}
+
+ul.my-stuff-links, ul.account-links {
+	list-style-type: none;
+	padding: 3px;
+	margin: 3px;
+}
+
+ul.my-stuff-links li, ul.account-links li{
+	line-height: 20	px;
+	padding: 3px;
+	margin: 3px;
+}
+
+div.logout-btn {
+	text-align: center;
+	background-color: lightgray;
+}
+
+li.me-drop-down {
+	padding: 0px 25px;
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-left-color: lightgray;
+}

@@ -21,5 +21,6 @@ end
 gem 'jquery-rails'
 gem 'jbuilder', '~> 1.2'
 gem 'ejs'
-
+gem 'underscore-rails'
+gem 'backbone-on-rails'
 gem 'boostrap-sass'

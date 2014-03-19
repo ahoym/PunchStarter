@@ -1,3 +1,10 @@
-<h1><%= @user.name %></h1>
-
-<h4>Contact <%= @user.name %> at: <%= @user.email%></h4>
+<div class="container user-profile row">
+	<div class="col-xs-2">
+		<img alt="Missing_medium" class="blue-square" height="160" src="https://d297h9he240fqh.cloudfront.net/assets/users/missing_medium.png" width="160">
+	</div>
+	<div class="show-body col-xs-6">
+		<h1><%= @user.name %></h1>
+		<h4>Contact <%= @user.name %> at: <%= @user.email%></h4>
+		<p> Joined <%= Date::MONTHNAMES[@user.created_at.month] %> <%= @user.created_at.year%></p>
+	</div>
+</div>

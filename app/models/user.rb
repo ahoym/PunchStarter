@@ -3,9 +3,10 @@
 # Table name: users
 #
 #  id              :integer          not null, primary key
-#  email           :text
-#  name            :text
-#  password_digest :text
+#  email           :text             not null
+#  name            :text             not null
+#  password_digest :text             not null
+#  session_token   :text
 #  created_at      :datetime
 #  updated_at      :datetime
 #
@@ -17,6 +18,12 @@ class User < ActiveRecord::Base
   validates :name, :email, :password_digest, :session_token, presence: true
   validates :name, :email, uniqueness: true
   validates :session_token, presence: true, uniqueness: true
+
+  has_many(
+    :created_projects,
+    :foreign_key => :creator_id,
+    :class_name => "Project"
+  )
 
   def is_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)

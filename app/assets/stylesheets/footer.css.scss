@@ -1,0 +1,24 @@
+div.footer {
+	background-color: black;
+	border-style: dashed none none none;
+	border-width: 1px;
+	border-color: lime;
+	position:fixed;
+  left:0px;
+  bottom:0px;
+  height:200px;
+  width:100%;
+}
+
+.footer-list-title {
+	font-weight: bold;
+	color: white;
+}
+
+.footer-list {
+	list-style-type: none;
+}
+
+.footer-list li{
+	line-height: 20	px;
+}
