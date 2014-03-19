@@ -1,0 +1,24 @@
+<nav class="navbar navbar-default navbar-static-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/#">PunchStarter</a>
+    </div>
+		<div class="navbar-collapse collapse">
+			<ul class="nav navbar-nav primary-links">
+				<li><a href="#">Discover</a></li>
+				<li><a href="#">Start</a></li>
+				
+			</ul>
+			<span class="for-search-bar"></span>
+			
+	    <ul class="nav navbar-nav navbar-right user-links">
+	      <% if logged_in? %>
+	        <li><%= link_to("Log out", session_url, { method: :delete})%></li>
+				<% else %>
+					<li><a href="<%= new_user_url %>">Sign Up</a></li>
+					<li><a href="<%= new_session_url %>">Log In</a></li>
+	      <% end %>
+	    </ul>
+		</div	>
+  </div>
+</nav>

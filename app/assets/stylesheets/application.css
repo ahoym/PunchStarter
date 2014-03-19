@@ -9,5 +9,23 @@
  * compiled file, but it's generally better to create a new file per style scope.
  *
  *= require_self
+ *= require bootstrap
  *= require_tree .
  */
+
+@import "bootstrap";
+
+ul.primary-links {
+	padding: 0px 25px;
+	border-right-style: solid;
+	border-right-width: 1px;
+	border-right-color: lightgray;
+}
+
+ul.primary-links li a{
+	font-weight: bold;
+}
+
+ul.user-links li a{
+	color:#000;
+}
