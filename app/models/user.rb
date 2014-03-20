@@ -20,7 +20,7 @@ class User < ActiveRecord::Base
   validates :session_token, presence: true, uniqueness: true
 
   has_many(
-    :created_projects,
+    :created_projects, :inverse_of => :creator,
     :foreign_key => :creator_id,
     :class_name => "Project"
   )

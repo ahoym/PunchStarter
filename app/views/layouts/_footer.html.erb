@@ -27,7 +27,9 @@
 	<div class="col-xs-3">
 		<p class="footer-list-title"><strong>Discover<strong></p>
 		<ul class="footer-list">
-			<li><a href="#"></a></li>
+			<% Project::CATEGORIES.values.each do |category| %>
+			<li><a href="#"><%= category %></a></li>
+			<% end %>
 		</ul>
 	</div>
 	

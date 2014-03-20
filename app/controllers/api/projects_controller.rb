@@ -2,13 +2,14 @@ class Api::ProjectsController < ApplicationController
   before_filter :set_project, :only => [:destroy, :show]
   
   def create
-    @project = Project.new(project_params)
+    @project = current_user.created_projects.create(project_params)
     
     if @project.save
-      render :json => @project
+      # render :json => @project
+      redirect_to api_project_url(@project)
     else
       render :json => @project.errors.full_messages
-      render :new
+      render "api/projects/new"
     end
   end
   
@@ -17,24 +18,23 @@ class Api::ProjectsController < ApplicationController
     redirect_to :index
   end
   
-  def edit
-    
-  end
-  
   def index
+    @projects = Project.all
     
+    respond_to do |format|
+      format.html {render :index}
+      format.json { render :json => @projects }
+    end
   end
   
   def new
+    @project = Project.new
     
+    render "api/projects/new"
   end
   
   def show
-    
-  end
-  
-  def update
-    
+    render :show
   end
   
   private

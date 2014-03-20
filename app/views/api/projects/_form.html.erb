@@ -1,0 +1,33 @@
+<form action="<%= api_projects_url %>" method="POST">
+	<%= input_auth_token %>
+	<input type="hidden" name="method" value="<%= verb %>">
+
+	<label>Project title</label>
+	<input type="text" name="project[title]" value="<%= project.title %>"><br><br>
+
+	<label>Category</label>
+	<select name="project[category]">
+		<option></option>
+		<% Project::CATEGORIES.each do |k, category| %>
+			<option value="<%= k %>"><%= category %></option>
+		<% end %>
+	</select><br><br>
+
+	<label>Short blurb</label>
+	<input type="textarea" name="project[short_blurb]" value="<%= project.short_blurb %>"><br><br>
+
+	<label>Project location</label>
+	<input type="text" name="project[project_location]" value="<%= project.project_location %>"><br><br>
+
+	<label>Funding duration</label>
+	<input 
+		type="radio" 
+		name="project[funding_duration]" 
+		value="Number of days">
+		Number of Days <input type="text" name="project[funding_duration]"><br><br>
+
+	<label>Funding goal</label>
+	<input type="text" name="project[funding_goal]" value="<%= project.funding_goal %>"><br><br>
+
+	<input type="submit" class="btn btn-primary" value="<%= submit_btn_value %>">
+</form>

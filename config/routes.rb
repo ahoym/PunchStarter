@@ -1,7 +1,8 @@
 PunchStarter::Application.routes.draw do
   root :to => "static_pages#root"
   
-  namespace :api, :defaults => { format: :json } do
+  # :defaults => { format: :json } add in later for backbone.
+  namespace :api do
     resources :projects
   end
   

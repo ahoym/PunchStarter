@@ -1,8 +1,34 @@
+.navbar-header {
+    width: 145px;
+    height: 50px;
+    overflow: hidden;
+		border-style: solid;
+		border-width: thin;
+		border-color: lightgrey;
+		float: left;
+}
+
+.navbar-header img {
+    width: 150px;
+    height: 50px;
+    margin: -15px 0 0 -10px;
+		float: left;
+}
+
 ul.primary-links {
 	padding: 0px 25px;
 	border-right-style: solid;
 	border-right-width: 1px;
 	border-right-color: lightgray;
+}
+
+li.me-drop-down {
+	font-weight: bold;
+	margin-right: -70px;
+	padding: 0px 25px;
+	border-left-style: solid;
+	border-left-width: 1px;
+	border-left-color: lightgray;
 }
 
 ul.primary-links li a{
@@ -13,13 +39,16 @@ ul.user-links li a{
 	color:#000;
 }
 
-ul.my-stuff-links, ul.account-links {
+.my-stuff-links, .account-links, .project-links {
+	float: left;
+	font-weight: normal;
 	list-style-type: none;
 	padding: 3px;
-	margin: 3px;
+	padding-left: 0px;
+	margin-right: 170px;
 }
 
-ul.my-stuff-links li, ul.account-links li{
+ul.my-stuff-links li, ul.account-links li, ul.project-links li{
 	line-height: 20	px;
 	padding: 3px;
 	margin: 3px;
@@ -28,11 +57,4 @@ ul.my-stuff-links li, ul.account-links li{
 div.logout-btn {
 	text-align: center;
 	background-color: lightgray;
-}
-
-li.me-drop-down {
-	padding: 0px 25px;
-	border-left-style: solid;
-	border-left-width: 1px;
-	border-left-color: lightgray;
 }

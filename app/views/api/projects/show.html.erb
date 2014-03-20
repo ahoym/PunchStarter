@@ -1,0 +1,10 @@
+<div class="container">
+	<h1><%= @project.title %></h1>
+	<h6> by <%= @project.creator.name %></h6>
+	<h5>Category: <%= @project.category %></h5>
+	<h5>Location: <%= @project.project_location %></h5>
+	<h4>Funding Goal: <%= @project.funding_goal %></h4>
+	<h5>Funding Duration: <%= @project.created_at + @project.funding_goal.days %></h5>
+
+	<p><%= @project.short_blurb %></p>
+</div>
