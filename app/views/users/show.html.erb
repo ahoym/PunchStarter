@@ -1,6 +1,6 @@
 <div class="container user-profile row">
 	<div class="col-xs-2">
-		<img alt="blue square" class="blue-square" src="/assets/images/KickStarterBlueSquare.png" width="160" height="160" alt="KickStarterBlueSquare">
+		<%= image_tag("KickStarterBlueSquare.png", :alt=>"User Icon", :class=>"blue-square") %>
 	</div>
 	<div class="show-body col-xs-6">
 		<h1><%= @user.name %></h1>

@@ -1,0 +1,21 @@
+<div class="row">
+ <h3 class="staff-picks-body">Staff Picks: </h3>
+ <div class="col-xs-9 staff-picks-body">
+
+ 	 
+ </div>
+ 
+	<div class="col-xs-3">
+		<div class="sidebar pull-left" role="complementary">
+			<ul class="nav sidenav">
+				<% for (var key in gon.categories) { %>
+					<% if (gon.categories.hasOwnProperty(key)) { %>
+					<li>
+						<a href="#"><%= gon.categories[key] %></a>
+					</li>
+					<% } %>
+				<% } %>
+			</ul>
+		</div>
+	</div>
+</div>

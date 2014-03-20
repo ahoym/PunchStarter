@@ -2,16 +2,24 @@
 <html>
 <head>
   <title>PunchStarter</title>
-	<%= stylesheet_link_tag "application", :media => "all" %>
+	<%= include_gon %>
   <%= javascript_include_tag "application" %>
+	<%= stylesheet_link_tag "application", :media => "all" %>
   <%= csrf_meta_tags %>
 </head>
 <body>
-	<%= render "layouts/navbar" %>
+	<div id="wrapper">
+		<div id="header">
+			<%= render "layouts/navbar" %>
+		</div>
 
-	<%= yield %>
+		<div id="actual-stuff">
+			<%= yield %>
+		</div>
 
-	<div class="space"></div>
-	<%= render "layouts/footer" %>
+		<div id="footer">
+			<%= render "layouts/footer" %>
+		</div>
+	</div>
 </body>
 </html>

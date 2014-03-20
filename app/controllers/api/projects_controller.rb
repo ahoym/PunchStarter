@@ -9,7 +9,6 @@ class Api::ProjectsController < ApplicationController
       redirect_to api_project_url(@project)
     else
       render :json => @project.errors.full_messages
-      render "api/projects/new"
     end
   end
   

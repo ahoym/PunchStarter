@@ -3,7 +3,6 @@ div.footer {
 	border-style: dashed none none none;
 	border-width: 1px;
 	border-color: lime;
-	position:fixed;
   left:0px;
   bottom:0px;
   height:220px;
@@ -24,4 +23,12 @@ div.footer {
 
 .footer-list li{
 	line-height: 20	px;
+}
+
+.category-double li{
+  line-height:1.5em;
+	padding: 0px 0px 0px 10px;
+  float:left;
+  display:inline;
+	width: 50%;
 }

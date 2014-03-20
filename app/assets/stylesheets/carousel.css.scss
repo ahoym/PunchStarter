@@ -1,0 +1,28 @@
+#myCarousel {
+	border-top: 5px solid #ffc600;
+	border-bottom: 5px solid #ffc600;
+	overflow: hidden;
+	white-space:nowrap;
+}
+.carousel-control {
+    margin-top: 20px;
+}
+.carousel-inner .item {
+    width: 100%;
+    height: 520px;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    background-size: cover;
+}
+.ad1 {
+    background: url("/assets/SlideOne.jpg") no-repeat center center fixed; 
+}
+.ad2 {
+    background: url("/assets/SlideTwo.jpg") no-repeat center center fixed; 
+}
+.ad3 {
+    background: url("/assets/SlideThree.jpg") no-repeat center center fixed; 
+}
+
+/*need to align text to center of pictures*/
