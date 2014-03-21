@@ -1,4 +1,6 @@
-/* globals window, PunchStarter, Backbone */
+/* globals window, PunchStarter:true */
+"use strict"
+
 
 window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 	routes: {

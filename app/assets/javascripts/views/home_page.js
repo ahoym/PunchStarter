@@ -2,12 +2,12 @@
 "use strict"
 
 window.PunchStarter.Views.HomePage = Backbone.CompositeView.extend ({
-	tagName: "home-page",
+	className: "home-page",
 	template: JST["home_page/home_page"],
 	
 	initialize: function (options) {
 	},
-	
+		
 	render: function () {
 		var renderedContent = this.template();
 		

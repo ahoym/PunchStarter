@@ -35,24 +35,26 @@
 										<li><a href="#">Find friends</a></li>
 									</ul><br>
 							</div>
-							<% if logged_in? && !current_user.created_projects.empty? %>
-							<div class="col-xs-offset-2 col-xs-3">
-								<p class="project-links"><strong>Created projects</strong></p>
-								<ul class="project-links">
-									<% current_user.created_projects.each do |project| %>
-										<li>
-											<a href="<%= api_project_url(project)%>"><%= project.title%></a>
-										</li>
-									<% end %>
-								</ul>
-							</div>
+							<% if logged_in? %>
+								<% if !current_user.created_projects.empty? %>
+								<div class="col-xs-offset-2 col-xs-3">
+									<p class="project-links"><strong>Created projects</strong></p>
+									<ul class="project-links">
+										<% current_user.created_projects.each do |project| %>
+											<li>
+												<a href="<%= api_project_url(project)%>"><%= project.title%></a>
+											</li>
+										<% end %>
+									</ul>
+								</div>
+								<% end %>
 							<% end %>
 							<div class="logout-btn" style="clear:both"><p> You're logged in as <%= current_user.name%><br> <%= link_to("Log out", session_url, { method: :delete})%></p></div>
 						</div>
 					</li>
 				<% else %>
-					<li><a href="<%= new_user_url %>">Sign Up</a></li>
-					<li><a href="<%= new_session_url %>">Log In</a></li>
+					<li><a class="btn nav-bar-new" href="<%= new_user_url %>">Sign Up</a></li>
+					<li><a class="btn nav-bar-new" href="<%= new_session_url %>">Log In</a></li>
 	      <% end %>
 	    </ul>
 		</div	>

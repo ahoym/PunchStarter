@@ -1,8 +1,10 @@
 <div class="new-page row">
-	<div class="log-in col-xs-4">
+	<div class="log-in col-xs-3">
 		<h4>Log in</h4>
 		<p>Please log in to continue.</p>
-		<form id="log-in-form">
+		<form action="<%= session_url %>" method="POST" id="log-in-form">
+			<%= input_auth_token %>
+			
 			<label for="email">EMAIL</label><br>
 			<input type="email" name="user[email]"><br>
 	
@@ -16,9 +18,11 @@
 	</div>
 
 	<div class="sign-up col-xs-5">
-		<h4>New to Kickstarter?</h4>
-		<p>A Kickstarter account is required to continue.</p>
-		<form id="sign-up-form">
+		<h4>New to PunchStarter?</h4>
+		<p>A PunchStarter account is required to continue.</p>
+		<form action="<%= users_url %>" method="POST" id="sign-up-form">
+			<%= input_auth_token %>
+			
 			<label for="name">FULL NAME</label><br>
 			<input type="text" name="user[name]"><br>
 	
@@ -45,4 +49,13 @@
 			<input type="submit" value="Sign me up!" class="sign-up-btn btn btn-success">
 		</form>
 	</div>
+	
+	<div class="sign-up col-xs-4">
+		<h4>Log in with Facebook</h4>
+		<p>It's fast and easy.</p>
+		<button class="btn btn-primary">Place Holder</button><br><br>
+		<p class="field-note">We'll never post anything without your permission</p>
+	</div>
 </div>
+
+<%= javascript_include_tag "listeners/new_page" %>

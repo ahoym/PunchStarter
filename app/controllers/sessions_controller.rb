@@ -12,7 +12,6 @@ class SessionsController < ApplicationController
       redirect_to user_url(@user)
     else
       flash.now[:errors] = ["Invalid login combination."]
-      render :new
     end
   end
   

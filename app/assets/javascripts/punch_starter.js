@@ -72,8 +72,3 @@ Backbone.CompositeView = Backbone.View.extend ({
 		return this._subviews;
 	}
 });
-
-
-$(document).ready(function() {
-	PunchStarter.initialize();
-});

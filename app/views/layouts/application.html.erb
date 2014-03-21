@@ -13,6 +13,13 @@
 			<%= render "layouts/navbar" %>
 		</div>
 
+		<% if flash.now[:errors]%>
+		<% flash.now[:errors].each do |error| %>
+			<%= error %>
+		<% end %>
+		<% end %>
+
+
 		<div id="content">
 			<%= yield %>
 		</div>
