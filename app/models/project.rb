@@ -4,7 +4,6 @@
 #
 #  id               :integer          not null, primary key
 #  title            :text
-#  category         :text             not null
 #  short_blurb      :text             not null
 #  project_location :text             not null
 #  funding_duration :integer          not null
@@ -31,13 +30,30 @@ class Project < ActiveRecord::Base
     :theater => "Theater"
   }
   
-  validates :title, :category, :short_blurb, :project_location,
+  validates :title, :short_blurb, :project_location,
             :funding_duration, :funding_goal, :creator, :presence => true
-  validates :category, inclusion: { in: CATEGORIES.values }
+  
+  has_one(
+    :category_type,
+    :foreign_key => :project_id,
+    :class_name => "ProjectCategory"
+  )
+  
+  has_one(
+    :category, :inverse_of => :project,
+    :through => :category_type,
+    :source => :category
+  )
+  
+  has_one(
+    :project_body,
+    :foreign_key => :project_id,
+    :class_name => "ProjectBody"
+  )
   
   belongs_to(
     :creator, :inverse_of => :created_projects,
     :foreign_key => :creator_id,
     :class_name => "User"
-  )
+  )  
 end

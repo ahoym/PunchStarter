@@ -3,6 +3,8 @@ class Api::ProjectsController < ApplicationController
   
   def create
     @project = current_user.created_projects.create(project_params)
+    category = Category.create(category_params)
+    @project.category = category
     
     if @project.save
       # render :json => @project
@@ -39,8 +41,12 @@ class Api::ProjectsController < ApplicationController
   private
   def project_params
     params.require(:project)
-      .permit(:title, :category, :short_blurb, :project_location, 
+      .permit(:title, :short_blurb, :project_location, 
               :funding_duration, :funding_goal, :creator)
+  end
+  
+  def category_params
+    params.require(:category).permit(:name)
   end
   
   def set_project 

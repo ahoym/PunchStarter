@@ -3,7 +3,9 @@ PunchStarter::Application.routes.draw do
   
   # :defaults => { format: :json } add in later for backbone.
   namespace :api do
-    resources :projects
+    resources :project do
+      resources :project_bodies, :only => [:create, :destroy, :update]
+    end
   end
   
   resources :users

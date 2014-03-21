@@ -6,10 +6,10 @@
 	<input type="text" name="project[title]" value="<%= project.title %>"><br><br>
 
 	<label>Category</label>
-	<select name="project[category]">
+	<select name="category[name]">
 		<option></option>
 		<% Project::CATEGORIES.each do |k, category| %>
-			<option value="<%= category %>"><%= category %></option>
+			<option value="<%= k %>"><%= category %></option>
 		<% end %>
 	</select><br><br>
 

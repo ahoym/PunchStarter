@@ -9,6 +9,7 @@
 #  session_token   :text
 #  created_at      :datetime
 #  updated_at      :datetime
+#  admin           :boolean          default(FALSE)
 #
 
 class User < ActiveRecord::Base

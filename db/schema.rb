@@ -11,14 +11,40 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140319204450) do
+ActiveRecord::Schema.define(version: 20140321211150) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
+  create_table "categories", force: true do |t|
+    t.text     "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "project_bodies", force: true do |t|
+    t.integer  "project_id"
+    t.text     "description"
+    t.text     "challenges"
+    t.text     "faq"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "project_bodies", ["project_id"], name: "index_project_bodies_on_project_id", using: :btree
+
+  create_table "project_categories", force: true do |t|
+    t.integer  "project_id"
+    t.integer  "category_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "project_categories", ["category_id"], name: "index_project_categories_on_category_id", using: :btree
+  add_index "project_categories", ["project_id"], name: "index_project_categories_on_project_id", using: :btree
+
   create_table "projects", force: true do |t|
     t.text     "title"
-    t.text     "category",         null: false
     t.text     "short_blurb",      null: false
     t.text     "project_location", null: false
     t.integer  "funding_duration", null: false
@@ -31,12 +57,13 @@ ActiveRecord::Schema.define(version: 20140319204450) do
   add_index "projects", ["creator_id"], name: "index_projects_on_creator_id", using: :btree
 
   create_table "users", force: true do |t|
-    t.text     "email",           null: false
-    t.text     "name",            null: false
-    t.text     "password_digest", null: false
+    t.text     "email",                           null: false
+    t.text     "name",                            null: false
+    t.text     "password_digest",                 null: false
     t.text     "session_token"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "admin",           default: false
   end
 
 end

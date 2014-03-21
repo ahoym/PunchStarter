@@ -2,7 +2,6 @@ class CreateProjects < ActiveRecord::Migration
   def change
     create_table :projects do |t|
       t.text :title, :null => :false
-      t.text :category, :null => false
       t.text :short_blurb, :null => false
       t.text :project_location, :null => false
       t.integer :funding_duration, :null => false
