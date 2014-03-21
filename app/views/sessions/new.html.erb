@@ -1,15 +1,1 @@
-<div class="container">
-	<h1>Sign In</h1>
-
-	<form action="<%= session_url %>" method="POST">
-		<%= input_auth_token %>
-	
-		<label for="email">Email</label><br>
-		<input type="email" name="user[email]"><br>
-	
-		<label for="password">Password</label><br>
-		<input type="password" name="user[password]"><br><br>
-
-		<input type="submit" value="Sign In" class="btn btn-success">
-	</form>
-</div>
+<%= render "layouts/new" %>

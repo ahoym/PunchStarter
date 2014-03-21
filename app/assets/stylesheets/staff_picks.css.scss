@@ -1,7 +1,19 @@
+.staff-picks {
+	padding-top: 10px;
+	padding-bottom: 20px;
+}
+
 .staff-picks-body {
-	padding-top: 20px;
+	text-align: top;
 	padding-left: 150px;
 }
 .sidenav li a{
 	display:inline;
+	padding-left: -15px;
+}
+
+.sidebar {
+	padding-left: 10px;
+	border-left: 2px solid lightgray;
+	border-width: thin;
 }

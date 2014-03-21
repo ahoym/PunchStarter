@@ -52,5 +52,5 @@ class User < ActiveRecord::Base
     user = User.find_by_email(email)
     return user if user && user.is_password?(password)
     nil
-  end    
+  end
 end
