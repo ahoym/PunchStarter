@@ -1,9 +1,25 @@
-<h1><%= @project.title %></h1>
-<h6> by <%= @project.creator.name %></h6>
-<h5>Category: <%= Project::CATEGORIES[@project.category.name.to_sym] %></h5>
-<h5>Location: <%= @project.project_location %></h5>
-<h4>Funding Goal: $<%= @project.funding_goal %></h4>
-<h5>Funding Duration: <%= @project.created_at + @project.funding_goal.days %></h5>
 
-<br><br>
-<p><%= @project.short_blurb %></p>
+	<div class="project-info">
+		<h1><%= @project.title %></h1>
+		<h6> by <%= @project.creator.name %></h6>
+		<h5>Category: <%= Project::CATEGORIES[@project.category.name.to_sym] %></h5>
+		<h5>Location: <%= @project.project_location %></h5>
+		<h4>Funding Goal: $<%= @project.funding_goal %></h4>
+		<h5>Funding Duration: <%= @project.created_at + @project.funding_goal.days %></h5>
+
+		<br><br>
+		<p><%= @project.short_blurb %></p>
+	</div>
+
+	<div class="project-body">
+		<h1>Description</h1>
+		<p><%= @project.project_body.description %></p>
+		<br><br>
+		
+		<h3>Risks and Challenges</h3>
+		<p><%= @project.project_body.challenges %></p>
+		<br><br>
+		
+		<h3>FAQ</h3>
+		<p><%= @project.project_body.faq %>
+	</div>

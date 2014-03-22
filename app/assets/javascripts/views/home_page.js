@@ -18,5 +18,7 @@ window.PunchStarter.Views.HomePage = Backbone.CompositeView.extend ({
 		this.$el.append(staffPicks.render().$el);
 		
 		return this;
-	}
+	},
+	
+
 });

@@ -1,0 +1,34 @@
+<form>
+	<label>Project title</label>
+	<input type="text" name="project[title]" value="<%= project.escape('title') %>"><br><br>
+
+	<label>Category</label>
+	<select name="category[name]">
+		<option></option>
+		<% for (var key in gon.categories) { %>
+			<% if (gon.categories.hasOwnProperty(key)) { %>
+			<option value="<%= key%>">
+				<%= gon.categories[key] %>
+			</option>
+			<% } %>
+		<% } %>
+	</select><br><br>
+
+	<label>Short blurb</label>
+	<input type="textarea" name="project[shortBlurb]" value="<%= project.escape('short_blurb') %>"><br><br>
+
+	<label>Project location</label>
+	<input type="text" name="project[projectLocation]" value="<%= project.escape('project_location') %>"><br><br>
+
+	<label>Funding duration</label>
+	<input 
+		type="radio" 
+		name="project[funding_duration]" 
+		value="Number of days">
+		Number of Days <input type="text" name="project[fundingDuration]"><br><br>
+
+	<label>Funding goal</label>
+	<input type="text" name="project[fundingGoal]" value="<%= project.escape('funding_goal') %>"><br><br>
+
+	<input type="submit" class="btn btn-primary" value="Continue">
+</form>

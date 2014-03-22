@@ -1,0 +1,19 @@
+<h1>What's your story?</h1>
+
+<form action="<%= api_project_project_bodies_url %>" method="POST">
+	<%= input_auth_token %>
+	
+	<label>Project description
+	<input type="textarea" name="project_body[description]">
+	</label><br><br>
+	
+	<label>Risks and Challenges
+	<input type="textarea" name="project_body[challenges]">
+	</label><br><br>
+	
+	<label>FAQ
+	<input type="textarea" name="project_body[faq]">
+	</label><br><br>
+	
+	<input type="submit" value="Continue">
+</form>

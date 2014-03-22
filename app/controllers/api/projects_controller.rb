@@ -5,10 +5,10 @@ class Api::ProjectsController < ApplicationController
     @project = current_user.created_projects.create(project_params)
     category = Category.create(category_params)
     @project.category = category
-    
+
     if @project.save
       # render :json => @project
-      redirect_to api_project_url(@project)
+      redirect_to new_api_project_project_body_url(@project)
     else
       render :json => @project.errors.full_messages
     end

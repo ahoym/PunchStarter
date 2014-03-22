@@ -4,7 +4,8 @@
 
 window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 	routes: {
-		"": "homePage"
+		"": "homePage",
+		"projects/new": "newProject",
 	},
 	
 	initialize: function (options) {
@@ -14,6 +15,14 @@ window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 	homePage: function () {
 		var homePageView = new PunchStarter.Views.HomePage();
 		this._swapView(homePageView);
+	},
+	
+	newProject: function () {
+		var project = new PunchStarter.Models.Project();
+		var newProjectView = new PunchStarter.Views.NewProject({
+			model: project
+		});
+		this._swapView(newProjectView);
 	},
 	
 	_swapView: function (view) {

@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require underscore
+//= require jquery.serializeJSON.min
 //= require backbone
 //= require punch_starter
 //= require bootstrap
