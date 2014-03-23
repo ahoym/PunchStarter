@@ -1,0 +1,35 @@
+.project-fields {
+	list-style-type: none;
+}
+
+.grey-field {
+	text-align:center;
+	margin-left: auto;
+	margin-right: auto;
+	background-color: #EEF2EA;
+	border-radius: 10px;
+	padding: 35px;
+	margin-bottom: 15px;
+}
+
+.preview-bar {
+	border-left: dotted 1px lightgray;
+	height: 100%;
+}
+
+.project-label {
+	width:25%;
+	text-align: left;
+	top:0px;
+	left:0px;
+	position:relative;
+}
+
+.project-input {
+	width:75%;
+	float: right;
+	text-align: left;
+	left: 5%;
+	top: 0px;
+	position: relative;
+}
