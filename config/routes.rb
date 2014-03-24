@@ -6,6 +6,8 @@ PunchStarter::Application.routes.draw do
     resources :projects do
       resources :project_bodies, :only => [:new, :create, :destroy, :update]
     end
+    
+    resources :categories
   end
   
   resources :users

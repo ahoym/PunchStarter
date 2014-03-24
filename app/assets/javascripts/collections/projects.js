@@ -2,6 +2,10 @@
 
 window.PunchStarter.Collections.Projects = Backbone.Collection.extend ({
 	model: PunchStarter.Models.Project,
-	url: "/api/projects"
+	url: "/api/projects",
+	
+	initialize: function (models, options) {
+		this.category = options.category;
+	}
 	
 });

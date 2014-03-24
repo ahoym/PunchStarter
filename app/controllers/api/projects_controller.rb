@@ -1,15 +1,17 @@
 class Api::ProjectsController < ApplicationController
   before_filter :set_project, :only => [:destroy, :show]
+  before_filter :require_user, :only => [:new, :create]
   
   def create
+    params[:project].merge(creator_id: current_user.id)
     @project = current_user.created_projects.create(project_params)
-    category = Category.create(category_params)
-    @project.category = category
+    @category = Category.find_by_name(params[:category_name])
+    @project.category = @category
 
     if @project.save
-      # render :json => @project
-      redirect_to new_api_project_project_body_url(@project)
+      render :json => @project
     else
+      debugger
       render :json => @project.errors.full_messages
     end
   end
@@ -44,11 +46,7 @@ class Api::ProjectsController < ApplicationController
       .permit(:title, :short_blurb, :project_location, 
               :funding_duration, :funding_goal, :creator)
   end
-  
-  def category_params
-    params.require(:category).permit(:name)
-  end
-  
+    
   def set_project 
     @project = Project.find(params[:id])
   end

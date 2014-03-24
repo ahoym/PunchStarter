@@ -27,15 +27,15 @@ class Category < ActiveRecord::Base
   
   validates :name, :presence => true, inclusion: { in: CATEGORY_TYPES }
   
-  has_one(
-    :project_category,
+  has_many(
+    :project_categories,
     :foreign_key => :category_id,
     :class_name => "ProjectCategory"
   )
   
-  has_one(
-    :project, :inverse_of => :category,
-    :through => :project_category,
+  has_many(
+    :projects, :inverse_of => :category,
+    :through => :project_categories,
     :source => :project
   )
 end

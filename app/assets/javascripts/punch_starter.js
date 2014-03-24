@@ -8,8 +8,8 @@ window.PunchStarter = {
 	Routers: {},
 
 	initialize: function () {
-		PunchStarter.projects = new PunchStarter.Collections.Projects();
-		PunchStarter.projects.fetch({
+		PunchStarter.categories = new PunchStarter.Collections.Categories();
+		PunchStarter.categories.fetch({
 			success: function() {
 				new PunchStarter.Routers.AppRouter({
 					$rootEl: $('#content')

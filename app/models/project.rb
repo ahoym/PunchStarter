@@ -40,7 +40,7 @@ class Project < ActiveRecord::Base
   )
   
   has_one(
-    :category, :inverse_of => :project,
+    :category, :inverse_of => :projects,
     :through => :category_type,
     :source => :category
   )
