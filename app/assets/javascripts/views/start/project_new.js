@@ -50,7 +50,12 @@ window.PunchStarter.Views.NewProject = Backbone.View.extend ({
 			category_name: $name
 		}, {
 			success: function(project) {
-				Backbone.history.navigate("#/projects/" + project.get('category_name') + "/" + project.id + "/new",
+				// category.projects().create doesn't seem to add the project
+				//	to its collection.
+				var category = PunchStarter.categories.getOrFetch($name);
+				category.projects().add(project);
+				
+				Backbone.history.navigate("#/projects/" + project.id + "/" + project.escape('category_name') + "/new",
 					{ trigger: true }
 				);
 			}

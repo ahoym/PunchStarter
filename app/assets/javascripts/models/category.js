@@ -11,7 +11,7 @@ window.PunchStarter.Models.Category = Backbone.Model.extend ({
 	
 	parse: function (jsonResp) {
     if (jsonResp.projects) {
-      this.projects().set(jsonResp.projects);
+      this.projects().set(jsonResp.projects, { parse: true });
       delete jsonResp.projects;
     }
 

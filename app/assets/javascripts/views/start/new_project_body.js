@@ -15,6 +15,8 @@ window.PunchStarter.Views.NewProjectBody = Backbone.View.extend ({
 		var $params = $('form').serializeJSON()["project_body"];
 		var project = this.model;
 		
+		// Not sure if can build through project, because of the has_one
+		//	association at the Rails level.
 		var projectBody = new PunchStarter.Models.ProjectBody({
 			project_id: this.model.id,
 			description: $params.description,
@@ -26,9 +28,9 @@ window.PunchStarter.Views.NewProjectBody = Backbone.View.extend ({
 		
 		projectBody.save({}, {
 			success: function (projectBody) {
-				project.projectBody().set(projectBody);
+				project.projectBody().set(projectBody.attributes);
 				var category = project.attributes.category_name;
-				Backbone.history.navigate("#/projects/" + category + "/" + project.id, 
+				Backbone.history.navigate("#/projects/" + project.id + "/" + category,
 					{ trigger: true }
 				);
 			}

@@ -23,10 +23,7 @@ class Api::ProjectsController < ApplicationController
   def index
     @projects = Project.all
     
-    respond_to do |format|
-      format.html {render :index}
-      format.json { render :json => @projects }
-    end
+    render :index
   end
   
   def new
@@ -36,7 +33,9 @@ class Api::ProjectsController < ApplicationController
   end
   
   def show
-    render :show
+    @project_body = @project.project_body
+    
+    render "api/projects/show"
   end
   
   private

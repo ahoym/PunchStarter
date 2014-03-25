@@ -1,16 +1,14 @@
-.page-list {
+.page-views {
 	list-style-type: none;
-}
-
-.home-page-view {
-	padding-top: 10px;
-	padding-bottom: 20px;
-}
-
-.staff-picks-body {
-	text-align: top;
+  padding-top: 20px;
 	padding-left: 150px;
+
+	.li {
+		padding-bottom: 20px;
+		text-align: top;		
+	}
 }
+
 .sidenav li a{
 	display:inline;
 	padding-left: -15px;

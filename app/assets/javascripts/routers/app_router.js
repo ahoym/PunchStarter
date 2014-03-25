@@ -1,15 +1,14 @@
 /* globals window, PunchStarter:true */
 "use strict"
 
-
 window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 	routes: {
 		"": "homePage",
 		"start": "startPage",
 		"discover": "discoverPage",
 		"projects/new": "newProject",
-		"projects/:category/:id/new": "newProjectBody",
-		"projects/:category/:id": "showProject"
+		"projects/:id/:category/new": "newProjectBody",
+		"projects/:id/:category": "showProject"
 	},
 	
 	initialize: function (options) {
@@ -21,6 +20,13 @@ window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 		this._swapView(homePageView);
 	},
 	
+	discoverPage: function () {
+		var discoverView = new PunchStarter.Views.Discover({ 
+			collection: PunchStarter.categories
+		});
+		this._swapView(discoverView);
+	},
+	
 	newProject: function () {
 		var project = new PunchStarter.Models.Project();
 		var newProjectView = new PunchStarter.Views.NewProject({
@@ -29,7 +35,7 @@ window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 		this._swapView(newProjectView);
 	},
 	
-	newProjectBody: function (category, id) {
+	newProjectBody: function (id, category) {
 		var projectCategory = PunchStarter.categories.getOrFetch(category);
 		var project = projectCategory.projects().get(id);
 		
@@ -39,10 +45,9 @@ window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 		this._swapView(projectBodyView);
 	},
 	
-	showProject: function (category, id) {
+	showProject: function (id, category) {
 		var projectCategory = PunchStarter.categories.getOrFetch(category);
 		var project = projectCategory.projects().get(id);
-		
 		var projectsShowView = new PunchStarter.Views.ProjectsShow({
 			model: project
 		});

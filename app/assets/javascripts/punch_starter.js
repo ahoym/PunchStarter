@@ -7,7 +7,7 @@ window.PunchStarter = {
 	Views: {},	
 	Routers: {},
 
-	initialize: function () {
+	initialize: function () {		
 		PunchStarter.categories = new PunchStarter.Collections.Categories();
 		PunchStarter.categories.fetch({
 			success: function() {
@@ -37,6 +37,7 @@ Backbone.CompositeView = Backbone.View.extend ({
 		_(this.subviews()).each (function (selectorSubviews, selector) {
 			var $selectorEl = view.$(selector);
 			$selectorEl.empty();
+			debugger
 			
 			_(selectorSubviews).each (function (subview) {
 				$selectorEl.append(subview.render().$el);

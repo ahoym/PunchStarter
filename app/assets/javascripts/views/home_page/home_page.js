@@ -9,18 +9,19 @@ window.PunchStarter.Views.HomePage = Backbone.CompositeView.extend ({
 	},
 		
 	render: function () {
-		var renderedContent = this.template();
-		
 		var carousel = new PunchStarter.Views.Carousel();
 		this.$el.append(carousel.render().$el);
+			
+		var renderedContent = this.template();
+		this.$el.append(renderedContent);
 		
 		var staffPicks = new PunchStarter.Views.StaffPicks();
-		this.$el.append(staffPicks.render().$el);
+		this.$('.page-views').append(staffPicks.render().$el);
 		
 		var locationProjects = new PunchStarter.Views.LocationProjects({
-			location: ""
+			location: "San Francisco, CA"
 		});
-		this.$el.append(locationProjects.render().$el);
+		this.$('.page-views').append(locationProjects.render().$el);
 		
 		return this;
 	}

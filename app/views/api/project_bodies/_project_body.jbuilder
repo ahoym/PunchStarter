@@ -1,0 +1,10 @@
+json.(
+	project_body, 
+	:id, 
+	:project_id, 
+	:description, 
+	:challenges, 
+	:faq, 
+	:created_at, 
+	:updated_at
+)

@@ -13,6 +13,15 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
     return json;
   },
 	
+	parse: function (jsonResp) {
+    if (jsonResp.project_body) {
+      this.projectBody().set(jsonResp.project_body, { parse: true });
+      delete jsonResp.project_body;
+    }
+
+    return jsonResp;
+	},
+	
 	projectBody: function () {
 		if (!this._projectBody) {
 			this._projectBody = new PunchStarter.Models.ProjectBody({}, {

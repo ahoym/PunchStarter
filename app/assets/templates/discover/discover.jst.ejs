@@ -1,0 +1,28 @@
+<div class="row">
+	<div class="col-xs-1"></div>
+		<div class="container">
+			<div class="page-header">
+				<h3>Discover Projects</h3>
+				<h4>Passion, ideas, and ambition abound. Start exploring!</h4>
+			</div>
+	<div class="col-xs-9">
+		<div class="discover-body">
+			<div class="discover-categories-body"></div>
+		</div>
+	</div>
+	
+	<div class="col-xs-2 sidebar">
+		<h4 class="category-list">Categories</h4>
+		<ol class="category-list">
+			<% categories.each( function(category) { %>
+				<li>
+				<a class="category" href="#" data-name="<%= category.get('name') %>">
+						<%= gon.categories[category.get('name')] %>
+				</a>
+				</li>
+			<% }) %>
+		</ol>
+	</div>
+	
+	</div>
+</div>
