@@ -1,6 +1,6 @@
 window.PunchStarter.Views.Carousel = Backbone.View.extend ({
-	id: "myCarousel",
-	className: "carousel slide",
+	id: "home-page-carousel",
+	className: "carousel slide carousel-fade",
 	attributes: function () {
 		return {			
 			"data-ride": "carousel"

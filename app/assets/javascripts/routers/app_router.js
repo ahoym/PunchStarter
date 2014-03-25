@@ -5,7 +5,11 @@
 window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 	routes: {
 		"": "homePage",
+		"start": "startPage",
+		"discover": "discoverPage",
 		"projects/new": "newProject",
+		"projects/:category/:id/new": "newProjectBody",
+		"projects/:category/:id": "showProject"
 	},
 	
 	initialize: function (options) {
@@ -25,6 +29,26 @@ window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 		this._swapView(newProjectView);
 	},
 	
+	newProjectBody: function (category, id) {
+		var projectCategory = PunchStarter.categories.getOrFetch(category);
+		var project = projectCategory.projects().get(id);
+		
+		var projectBodyView = new PunchStarter.Views.NewProjectBody({
+			model: project
+		});
+		this._swapView(projectBodyView);
+	},
+	
+	showProject: function (category, id) {
+		var projectCategory = PunchStarter.categories.getOrFetch(category);
+		var project = projectCategory.projects().get(id);
+		
+		var projectsShowView = new PunchStarter.Views.ProjectsShow({
+			model: project
+		});
+		this._swapView(projectsShowView);
+	},
+	
 	_swapView: function (view) {
 		if (this._currentView) {
 			this._currentView.remove();
@@ -33,5 +57,4 @@ window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 		
 		this.$rootEl.html(view.render().$el);
 	}
-	
 });

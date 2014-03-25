@@ -23,7 +23,4 @@ window.PunchStarter.Collections.Categories = Backbone.Collection.extend ({
 			}
 		});			
 	}
-		
-		
-		
 });

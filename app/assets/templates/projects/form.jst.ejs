@@ -17,21 +17,22 @@
 			<div class="form-group">
 				
 				<ol class="project-fields row">
+					
 					<li class= "project-title">
-						<div class="grey-field">
-							<div class="project-label">
+						<div class="grey-field row">
+							<div class="project-label col-xs-2">
 								<label>Project title</label>
 							</div>
 							<div class="project-input">
-								<input type="text" name="project[title]" value="<%= project.title %>" class="form-control">
+								<input type="text" name="project[title]" value="<%= project.title %>" class="form-control new-project-title" maxlength="60" placeholder="60 chars max!">
 								<p class="field-note">Your project title should be simple, specific, and memorable, and it should include the title of the creative project you're raising funds for. Avoid words like "help,” "support,” or "fund.”</p>
 							</div>
 						</div>
 					</li>
 	
 					<li class="project-category">
-						<div class="grey-field">
-							<div class="project-label">
+						<div class="grey-field row">
+							<div class="project-label col-xs-2">
 								<label>Category</label>
 							</div>
 							<div class="project-input">
@@ -50,49 +51,55 @@
 					</li>
 
 					<li class="project-short-blurb">
-						<div class="grey-field">
-							<div class="project-label">
+						<div class="grey-field row">
+							<div class="project-label col-xs-2">
 								<label>Short blurb</label>
 							</div>
 							<div class="project-input">
-								<input type="textarea" name="project[shortBlurb]" value="<%= project.shortBlurb %>" class="form-control">
+								<textarea name="project[shortBlurb]" value="<%= project.shortBlurb %>" class="form-control new-project-short-blurb" maxlength="135" cols="50" rows="3"></textarea>
+								<p class="field-note">If you had to describe your project in one tweet, how would you do it?</p>
 							</div>
-						</div>
+						<div>
 					</li>
 
 					<li class="project-location">
-						<div class="grey-field">
-							<div class="project-label">
+						<div class="grey-field row">
+							<div class="project-label col-xs-2">
 								<label>Project location</label>
 							</div>
 							<div class="project-input">
-								<input type="text" name="project[location]" value="<%= project.location %>" class="form-control">
+								<input type="text" name="project[location]" value="<%= project.location %>" class="form-control new-project-location">
 							</div>
 						</div>
 					</li>
 
 					<li class="project-funding-duration">
-						<div class="grey-field">
-							<div class="project-label">
+						<div class="grey-field row">
+							<div class="project-label col-xs-2">
 								<label>Funding duration</label>
 							</div>
 							<div class="project-input">
 								<input 
 									type="radio" 
 									name="project[fundingDuration]" 
-									value="Number of days">
-									Number of Days <input type="text" name="project[fundingDuration]" class="form-control">
+									value="Number of days"s> Number of Days<input type="text" name="project[fundingDuration]" class="form-control new-project-duration" placeholder="1-60 days, we recommend 30 or less">
+									<p class="field-note">We recommend that projects last 30 days or less. Shorter durations have higher success rates, and will create a helpful sense of urgency around your project. For more on duration, see <a href="#">Kickstarter School</a>.</p>
+
+<p class="field-note">Note: After your project ends, there is a 14-day window for collecting and processing pledges. After that, you can transfer funds from your Amazon account to your bank account. Please plan accordingly.</p>
 							</div>
 						</div>
 					</li>
 
 					<li class="project-funding-goal">
-						<div class="grey-field">
-							<div class="project-label">
+						<div class="grey-field row">
+							<div class="project-label col-xs-2">
 								<label>Funding goal</label>
 							</div>
 							<div class="project-input">
-								<input type="text" name="project[fundingGoal]" value="<%= project.fundingGoal %>" class="form-control">
+								<input type="text" name="project[fundingGoal]" value="<%= project.fundingGoal %>" class="form-control new-project-goal" placeholder="$0 USD">
+								<p class="field-note">Your funding goal should be the minimum amount needed to complete the project and fulfill all rewards. Because funding is all-or-nothing, you can always raise more than your goal but never less.</p>
+
+<p class="field-note">If your project is successfully funded, Kickstarter will apply a 5% fee to the funds raised, and Amazon will apply <a href="#">credit card processing fees</a> (between 3-5	%). If funding isn't successful, there are no fees.</p>
 							</div>
 						</div>
 					</li>
@@ -105,9 +112,32 @@
 			</form>
 	</div>
 	
-	<div class="preview-bar col-xs-3">
-		<p>For Preview!</p><br>
-		<p>Test</p>
+	<div class="new-project-sidebar col-xs-3">
+		<div class="grey-field">
+			<p><img class='lightbulb' src="assets/lightbulb.jpeg" height:"5" width:"5"></p><p>How to <a href="https://www.kickstarter.com/help/school#defining_your_project">Make an awesome project</a></p>
+		</div>
+		
+		<div class="preview-container">
+			<div class="preview-box">
+				<div class="new-project-title"></div><br>
+				<div class="new-project-short-blurb"></div><br><br>
+				<div class="new-project-location"></div><br>
+				
+				<div class="new-project-funds">
+					<p><strong>
+						<span class="l-space">
+							0%
+						</span>
+						</strong>
+						<strong>$0.00</strong>
+					</p>
+					<p><span class="s-space">
+						FUNDED
+						</span>
+						PLEDGED
+					</p>
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
-    

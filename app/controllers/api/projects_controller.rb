@@ -11,7 +11,6 @@ class Api::ProjectsController < ApplicationController
     if @project.save
       render :json => @project
     else
-      debugger
       render :json => @project.errors.full_messages
     end
   end

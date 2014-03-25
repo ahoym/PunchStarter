@@ -5,10 +5,9 @@ class Api::ProjectBodiesController < ApplicationController
     @project.project_body = @project_body
     
     if @project_body.save
-      redirect_to api_project_url (@project)
-      # render :json => @project_body
+      render :json => @project_body
     else
-      render :json => @project_body.errors.full_messages      
+      render :json => @project_body.errors.full_messages, status: 422
     end
   end
   

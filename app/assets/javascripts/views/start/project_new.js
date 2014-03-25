@@ -4,7 +4,11 @@
 window.PunchStarter.Views.NewProject = Backbone.View.extend ({
 	template: JST["projects/form"],
 	
-	events: { "submit form": "submit" },
+	events: { "submit form": "submit",
+	 					"keyup input.new-project-title": "handleTitle",
+						"keyup .new-project-short-blurb": "handleBlurb",
+						"keyup input.new-project-location": "handleLocation",
+					},
 	
 	render: function () {
 		var renderedContent = this.template({ project: this.model });
@@ -13,13 +17,29 @@ window.PunchStarter.Views.NewProject = Backbone.View.extend ({
 		return this;
 	},
 	
+	handleTitle: function () {
+		this.renderPreview('.new-project-title');
+	},
+	
+	handleBlurb: function () {
+		this.renderPreview('.new-project-short-blurb');
+	},
+	
+	handleLocation: function () {
+		this.renderPreview('.new-project-location');
+	},
+	
+	renderPreview: function (inputClass) {
+		var content = this.$(inputClass).val();
+		var previewContent = (_.escape(content));
+		this.$('div' + inputClass).html(previewContent);
+	},
+	
 	submit: function (event) {
+		event.preventDefault();
 		var $name = $('form').serializeJSON()["category"].name;
 		var category = PunchStarter.categories.getOrFetch($name);
-		event.preventDefault();
-
 		var $project = $('form').serializeJSON()["project"];
-		var that = category
 		
 		category.projects().create({
 			title: $project.title, 
@@ -30,12 +50,9 @@ window.PunchStarter.Views.NewProject = Backbone.View.extend ({
 			category_name: $name
 		}, {
 			success: function(project) {
-				Backbone.history.navigate("/#", { trigger: true })
-			},
-			error: function(error) {
-				that
-				debugger
-				console.log(arguments);
+				Backbone.history.navigate("#/projects/" + project.get('category_name') + "/" + project.id + "/new",
+					{ trigger: true }
+				);
 			}
 		});	
 	}

@@ -1,3 +1,5 @@
+$primary-color: #EEF2EA;
+
 .project-fields {
 	list-style-type: none;
 }
@@ -6,30 +8,77 @@
 	text-align:center;
 	margin-left: auto;
 	margin-right: auto;
-	background-color: #EEF2EA;
+	background-color: $primary-color;
 	border-radius: 10px;
 	padding: 35px;
 	margin-bottom: 15px;
+
+	.project-label {
+		width:25%;
+		text-align: left;
+		top:0px;
+		left:0px;
+		position:relative;
+	}
+	
+	.project-input {
+		width:75%;
+		float: right;
+		padding-right: 10px;
+		text-align: left;
+		left: 5%;
+		top: 0px;
+		position: relative;
+	}
 }
 
-.preview-bar {
+/*.new-project-duration {
+	width: 50%;
+}*/
+
+.new-project-sidebar {
+	margin-left: 15px;
 	border-left: dotted 1px lightgray;
 	height: 100%;
+
+	.preview-container {
+		height: 250px;
+		margin-top: auto;
+		margin-bottom: auto;
+		background-color: $primary-color;
+		border-radius: 10px;
+		padding: 5px;
+	
+		.preview-box {
+			height: 100%;
+			background-color: white;
+			border-radius: 10px;
+			padding-top: 3px;
+			padding-left: 5px;
+			padding-right: 3px;
+			padding-bottom: 5px;
+
+			.new-project-title {
+				font-weight: bold;
+			}
+	
+			.new-project-funds {
+				bottom: 0px;
+				left: auto;
+				position: absolute;
+			}
+		}	
+	}
 }
 
-.project-label {
-	width:25%;
-	text-align: left;
-	top:0px;
-	left:0px;
-	position:relative;
+.l-space {
+	margin-right: 55px;
 }
 
-.project-input {
-	width:75%;
-	float: right;
-	text-align: left;
-	left: 5%;
-	top: 0px;
-	position: relative;
+.s-space {
+	margin-right: 20px;
+}
+
+.lightbulb {
+	border-radius: 50px;
 }

@@ -1,0 +1,22 @@
+	<h1><%= project.escape('title') %></h1>
+	<h6> by <%= project.creator() %></h6>
+	<h5>Category: <%= project.escape('category_name') %></h5>
+	<h5>Location: <%= project.escape('project_location') %></h5>
+	<h4>Funding Goal: $<%= project.escape('funding_goal') %></h4>
+	<h5>Funding Duration: <%= project.fundingPeriod() %></h5>
+
+	<br><br>
+	<p><%= project.escape('short_blurb') %></p>
+</div>
+
+<div class="project-body">
+	<h1>Description</h1>
+	<p><%= projectBody.escape('description') %></p>
+	<br><br>
+	
+	<h3>Risks and Challenges</h3>
+	<p><%= projectBody.escape('challenges') %></p>
+	<br><br>
+	
+	<h3>FAQ</h3>
+	<p><%= projectBody.escape('faq') %>

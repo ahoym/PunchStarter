@@ -9,23 +9,8 @@
 #
 
 class Category < ActiveRecord::Base
-  CATEGORY_TYPES = [
-    "art",    
-    "comics",   
-    "dance",    
-    "design",   
-    "fashion", 
-    "media",   
-    "food",   
-    "games",  
-    "music",  
-    "photo",  
-    "publishing",
-    "tech",   
-    "theater"
-  ]
-  
-  validates :name, :presence => true, inclusion: { in: CATEGORY_TYPES }
+
+  validates :name, :presence => true, inclusion: { in: Project::CATEGORIES.keys }
   
   has_many(
     :project_categories,

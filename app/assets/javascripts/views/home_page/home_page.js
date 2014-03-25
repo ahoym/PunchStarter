@@ -17,8 +17,13 @@ window.PunchStarter.Views.HomePage = Backbone.CompositeView.extend ({
 		var staffPicks = new PunchStarter.Views.StaffPicks();
 		this.$el.append(staffPicks.render().$el);
 		
+		var locationProjects = new PunchStarter.Views.LocationProjects({
+			location: ""
+		});
+		this.$el.append(locationProjects.render().$el);
+		
 		return this;
-	},
+	}
 	
 
 });

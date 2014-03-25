@@ -16,13 +16,14 @@
   background-size: cover;
 }
 .ad1 {
-    background: url("/assets/SlideOne.jpg") no-repeat center center fixed; 
+  background: url("/assets/SlideOne.jpg") no-repeat center center fixed; 
 }
 .ad2 {
-    background: url("/assets/SlideTwo.jpg") no-repeat center center fixed; 
+  background: url("/assets/SlideTwo.jpg") no-repeat center center fixed; 
 }
 .ad3 {
-    background: url("/assets/SlideThree.jpg") no-repeat center center fixed; 
+  background: url("/assets/SlideThree.jpg") no-repeat center center fixed; 
 }
-
-/*need to align text to center of pictures*/
+.carousel-caption {
+	height: 50%;
+}
