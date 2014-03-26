@@ -22,3 +22,10 @@ unless backings.nil?
 		json.partial!("api/backings/backing", :backing => backing)
 	end
 end
+
+stars ||= nil
+unless stars.nil?
+	json.stars(stars) do |star|
+		json.partial!("api/stars/star", :star => star)
+	end
+end

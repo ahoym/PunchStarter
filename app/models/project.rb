@@ -32,6 +32,18 @@ class Project < ActiveRecord::Base
   
   validates :title, :short_blurb, :project_location,
             :funding_duration, :funding_goal, :creator, :presence => true
+            
+  has_many(
+    :stars,
+    :foreign_key => :liked_project_id,
+    :class_name => "Star"
+  )
+
+  has_many(
+    :likers,
+    :through => :stars,
+    :source => :liker
+  )
 
   has_many(
     :backings,

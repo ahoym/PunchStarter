@@ -4,7 +4,8 @@ PunchStarter::Application.routes.draw do
   namespace :api do
     resources :projects do
       resources :project_bodies, :only => [:new, :create, :destroy, :update]
-      resources :backings, :only => [:create, :index, :show]
+      resources :backings, :only => [:create]
+      resources :stars, :only => [:create]
     end
     
     resources :categories

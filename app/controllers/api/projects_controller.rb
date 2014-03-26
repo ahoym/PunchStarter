@@ -35,6 +35,7 @@ class Api::ProjectsController < ApplicationController
   def show
     @project_body = @project.project_body
     @backings = @project.backings
+    @stars = @project.stars
     
     render "api/projects/show"
   end

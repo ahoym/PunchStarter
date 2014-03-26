@@ -9,11 +9,7 @@ class Api::BackingsController < ApplicationController
       render :json => @backing.errors.full_messages, status: 422
     end
   end
-
-  def show
-    
-  end
-
+  
   private
   def backing_params
     params.require(:backing).permit( :investment, :backed_project_id)

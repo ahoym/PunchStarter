@@ -12,7 +12,8 @@ unless projects.nil?
 		json.partial!("api/projects/project", 
 									:project => project, 
 									:project_body => project.project_body,
-									:backings => project.backings
+									:backings => project.backings,
+									:stars => project.stars
 									)
 	end
 end
