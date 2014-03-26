@@ -24,6 +24,11 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
       this.backings().set(jsonResp.backings, { parse: true });
       delete jsonResp.backings;
     }
+		
+		if (jsonResp.stars) {
+			this.stars().set(jsonResp.stars, { parse: true });
+			delete jsonResp.stars;
+		}
 
     return jsonResp;
 	},
@@ -60,6 +65,16 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
 	
 	numBackers: function () {
 		return this.backings().models.length;
+	},
+	
+	stars: function () {
+		if (!this._stars) {
+			this._stars = new PunchStarter.Collections.Stars([], {
+				project: this
+			});
+		}
+		
+		return this._stars;
 	},
 	
 	creator: function () {

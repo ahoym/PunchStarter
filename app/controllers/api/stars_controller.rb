@@ -10,6 +10,13 @@ class Api::StarsController < ApplicationController
     end
   end
   
+  def destroy
+    @star = Star.find_by_liker_id(current_user.id)
+    @star.destroy
+    
+    render :json => @star
+  end
+  
   private
   def star_params
     params.require(:star).permit(:liked_project_id)

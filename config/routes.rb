@@ -5,7 +5,7 @@ PunchStarter::Application.routes.draw do
     resources :projects do
       resources :project_bodies, :only => [:new, :create, :destroy, :update]
       resources :backings, :only => [:create]
-      resources :stars, :only => [:create]
+      resources :stars, :only => [:create, :destroy]
     end
     
     resources :categories
