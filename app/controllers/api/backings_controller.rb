@@ -1,7 +1,7 @@
-class BackingsController < ApplicationController
+class Api::BackingsController < ApplicationController
   
   def create
-    @backing = Backing.new(backing_params)
+    @backing = current_user.backings.create(backing_params)
     
     if @backing.save
       render :json => @backing
@@ -10,8 +10,12 @@ class BackingsController < ApplicationController
     end
   end
 
+  def show
+    
+  end
+
   private
   def backing_params
-    params.require(:backing).permit(:investment, :project)
+    params.require(:backing).permit( :investment, :backed_project_id)
   end
 end

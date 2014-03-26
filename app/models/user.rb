@@ -25,12 +25,18 @@ class User < ActiveRecord::Base
     :foreign_key => :creator_id,
     :class_name => "Project"
   )
-
-  has_many :backings
   
-  has_many :backed_projects, :inverse_of => :backers,
-           :through => :backings,
-           :source => :backed_project
+  has_many(
+    :backings,
+    :foreign_key => :backer_id,
+    :class_name => "Backing"
+  )
+  
+  has_many(
+    :backed_projects,
+    :through => :backings,
+    :source => :backed_project
+  )
 
   def is_password?(password)
     BCrypt::Password.new(self.password_digest).is_password?(password)

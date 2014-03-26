@@ -7,6 +7,7 @@ window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 		"start": "startPage",
 		"discover": "discoverPage",
 		"projects/new": "newProject",
+		"backing/projects/:id/:category/new": "newBacking",
 		"projects/:id/:category/new": "newProjectBody",
 		"projects/:id/:category": "showProject"
 	},
@@ -52,6 +53,16 @@ window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 			model: project
 		});
 		this._swapView(projectsShowView);
+	},
+	
+	newBacking: function (id, category) {
+		var projectCategory = PunchStarter.categories.getOrFetch(category);
+		var project = projectCategory.projects().get(id);
+		
+		var newBackingView = new PunchStarter.Views.NewBacking({
+			model: project
+		});
+		this._swapView(newBackingView);
 	},
 	
 	_swapView: function (view) {

@@ -1,1 +1,41 @@
-<h1>Creation Form for Backings</h1>
+<% var category = this.model.collection.category.escape('name') %>
+
+<div class="project-header">
+	<a href="/#/projects/<%=project.id%>/<%=category%>"><h1><%= project.escape('title') %></h1></a>
+	<h6> by <%= project.creator() %></h6>
+	<h5>Category: <%= gon.categories[category] %></h5>
+	<h5>Location: <%= project.escape('project_location') %></h5>
+</div>
+
+<div class="container row">
+	<div class="col-xs-1"></div>
+	<div class="project-view-window col-xs-10 row">
+		<div class="project-view-body col-xs-8">			
+			<h1 class="greenify">Alrighty!</h1>
+			<h4>Enter your pledge amount</h4>
+			<form>
+				<div class="form-group">
+					<input type="text" name="backing[investment]" class="form-control money-box">
+					
+					<h4>Select your reward</h4>
+					<label>
+					<input type="radio" value="No reward"> No Reward </label><p class="l-space">No thanks, I just want to help the project. (Because you don't have a choice right now!!)</p>
+					
+				</div>
+				
+				<input type="submit" class="btn support-btn" value="Fund it!">
+			</form>
+		</div>
+      
+		<div class="project-view-side col-xs-4">
+			<h4>pledged of $<%= project.escape('funding_goal') %> goal</h4>
+			<h1 class="important"><%= project.daysLeft() %> <sup>days to go</sup></h1>
+			<button class="btn support-btn btn-success">
+				<p>Back This Project</p><br>
+				<sup style="color:black">$1 minimum pledge</sup>
+			</button>
+			<p class="field-note">This project will be funded on <%= project.endDate() %>.</p>
+			<h5><strong>Funding Duration:</strong></h5><p><%= project.fundingPeriod() %></p>
+		</div>		
+	</div>	
+</div>	

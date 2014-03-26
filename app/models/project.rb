@@ -32,13 +32,19 @@ class Project < ActiveRecord::Base
   
   validates :title, :short_blurb, :project_location,
             :funding_duration, :funding_goal, :creator, :presence => true
+
+  has_many(
+    :backings,
+    :foreign_key => :backed_project_id,
+    :class_name => "Backing"
+  )
   
-  has_many :backings
-  
-  has_many :backers, :inverse_of => :backed_projects,
-           :through => :backings,
-           :source => :backer
-  
+  has_many(
+    :backers,
+    :through => :backings,
+    :source => :backer
+  )
+
   has_one(
     :category_type,
     :foreign_key => :project_id,

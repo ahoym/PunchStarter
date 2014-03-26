@@ -4,6 +4,22 @@
 window.PunchStarter.Models.Project = Backbone.Model.extend ({
 	urlRoot: "/api/projects",
 	
+	getOrFetch: function(id) {
+		var model;
+		var boards = this;
+		
+		if (model = this.get(id)) {
+			model.fetch();
+			return model;
+		} else {
+			model = new Trellino.Models.Board({ id: id });
+			model.fetch({
+				succes: function() { boards.add(model) }
+			});
+			return model;
+		}
+	},
+	
   toJSON: function () {
     var json = Backbone.Model.prototype.toJSON.call(this);
 

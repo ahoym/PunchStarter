@@ -8,25 +8,30 @@
 <div class="container row">
 	<div class="col-xs-1"></div>
 	<div class="project-view-window col-xs-10 row">
-		<div class="project-view-body col-xs-8">			
-			<h3><%= project.escape('short_blurb') %></h3>
+		<div class="project-view-body col-xs-8">
+			<div class="where-formatting-matters">
+				<h3><%= project.escape('short_blurb') %></h3>
 
-			<p><%= projectBody.escape('description') %></p>
+				<p><%= projectBody.escape('description') %></p>
 
-			<h3 class="project-topic">Risks and Challenges</h3>
-			<p><%= projectBody.escape('challenges') %></p>
+				<h3 class="project-topic">Risks and Challenges</h3>
+				<p><%= projectBody.escape('challenges') %></p>
 
-			<h3 class="project-topic">FAQ</h3>
-			<p><%= projectBody.escape('faq') %></p>
-		</div>
-      
+				<h3 class="project-topic">FAQ</h3>
+				<p><%= projectBody.escape('faq') %></p>
+			</div>
+     </div>
+			
 		<div class="project-view-side col-xs-4">
 			<h4>pledged of $<%= project.escape('funding_goal') %> goal</h4>
+			
 			<h1 class="important"><%= project.daysLeft() %> <sup>days to go</sup></h1>
-			<button class="btn support-btn btn-success">
+			
+			<a class="btn support-btn btn-success">
 				<p>Back This Project</p><br>
 				<sup style="color:black">$1 minimum pledge</sup>
-			</button>
+			</a>
+			
 			<p class="field-note">This project will be funded on <%= project.endDate() %>.</p>
 			<h5><strong>Funding Duration:</strong></h5><p><%= project.fundingPeriod() %></p>
 		</div>		

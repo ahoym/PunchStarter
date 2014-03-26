@@ -8,6 +8,7 @@ class CreateBackings < ActiveRecord::Migration
       t.timestamps
     end
     
-    add_index :backings, [:backer_id, :backed_project_id]
+    add_index :backings, :backer_id
+    add_index :backings, :backed_project_id
   end
 end

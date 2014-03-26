@@ -24,7 +24,8 @@ ActiveRecord::Schema.define(version: 20140326000459) do
     t.datetime "updated_at"
   end
 
-  add_index "backings", ["backer_id", "backed_project_id"], name: "index_backings_on_backer_id_and_backed_project_id", using: :btree
+  add_index "backings", ["backed_project_id"], name: "index_backings_on_backed_project_id", using: :btree
+  add_index "backings", ["backer_id"], name: "index_backings_on_backer_id", using: :btree
 
   create_table "categories", force: true do |t|
     t.text     "name"

@@ -24,9 +24,12 @@ $primary-background-color: #EEF2EA;
 	border-radius: 10px;
 	font-size: 16px;
 	border: solid 4px lightgray;
-	white-space: pre-wrap;
 	
 	.project-view-body {
+		.where-formatting-matters{
+			white-space: pre-wrap;
+		}
+		
 		.project-topic {
 			font-size: 36px;
 			color: gray;
@@ -36,21 +39,17 @@ $primary-background-color: #EEF2EA;
 	
 	.project-view-side {
 		margin-top: 50px;
-  
-		.support-btn {
-			width: 100%;
-			margin: 20px 0px;
-			padding: 15px 30px;
-		 	background-color: $kickstarter-green;
-			
+		padding: 10px 0;
+  	
 			p {
 				font-size: 18px;
-			}
-		}
+				padding: 5px;
+			}		
 	}
-	
-	h1, h2, h3, h4, h5 {
-		margin: 0;
-		padding: 0;
-	}
+}
+
+.support-btn {
+	margin: 20px 0px;
+	padding: 15px 70px;
+ 	background-color: $kickstarter-green;
 }
