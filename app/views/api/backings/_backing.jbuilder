@@ -1,0 +1,9 @@
+json.(
+	backing,
+	:id,
+	:investment,
+	:backer_id,
+	:backed_project_id,
+	:created_at,
+	:updated_at
+)

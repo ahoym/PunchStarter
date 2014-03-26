@@ -11,10 +11,20 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140321211150) do
+ActiveRecord::Schema.define(version: 20140326000459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "backings", force: true do |t|
+    t.integer  "investment",        null: false
+    t.integer  "backer_id",         null: false
+    t.integer  "backed_project_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "backings", ["backer_id", "backed_project_id"], name: "index_backings_on_backer_id_and_backed_project_id", using: :btree
 
   create_table "categories", force: true do |t|
     t.text     "name"

@@ -15,3 +15,10 @@ project_body ||= nil
 unless project_body.nil?
 	json.project_body(project_body)
 end
+
+backings ||= nil
+unless backings.nil?
+	json.backings(backings) do |backing|
+		json.partial!("api/backings/backing", :backing => backing)
+	end
+end

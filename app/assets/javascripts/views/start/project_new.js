@@ -52,6 +52,7 @@ window.PunchStarter.Views.NewProject = Backbone.View.extend ({
 			success: function(project) {
 				// category.projects().create doesn't seem to add the project
 				//	to its collection.
+				project.creator();
 				var category = PunchStarter.categories.getOrFetch($name);
 				category.projects().add(project);
 				

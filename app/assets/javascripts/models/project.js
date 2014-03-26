@@ -1,4 +1,5 @@
 /* globals PunchStarter:true, Backbone */
+"use strict"
 
 window.PunchStarter.Models.Project = Backbone.Model.extend ({
 	urlRoot: "/api/projects",
@@ -18,6 +19,11 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
       this.projectBody().set(jsonResp.project_body, { parse: true });
       delete jsonResp.project_body;
     }
+		
+    if (jsonResp.backings) {
+      this.backings().set(jsonResp.backings, { parse: true });
+      delete jsonResp.backings;
+    }
 
     return jsonResp;
 	},
@@ -32,6 +38,16 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
 		return this._projectBody;
 	},
 	
+	backings: function () {
+		if (!this._backings) {
+			this._backings = new PunchStarter.Collections.Backings([], {
+				project: this
+			});
+		}
+		
+		return this._backings;
+	},
+	
 	creator: function () {
 		if (!this._creator) {
 			this._creator = gon.currentUser;
@@ -39,13 +55,28 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
 		
 		return this._creator;
 	},
+
+	startDate: function () {
+		return new Date(this.escape('created_at'));
+	},
 	
-	fundingPeriod: function () {
-		var startDate = new Date(this.escape('created_at'));
+	endDate: function () {
+		var startDate = this.startDate();
 		var endDate = new Date();
 		endDate.setDate(startDate.getDate() + parseInt(this.escape('funding_duration')));
+		return endDate;
+	},
+	
+	fundingPeriod: function () {
+		var startDate = this.startDate();
+		var endDate = this.endDate();
 		
 		return this.convertTime(startDate) + " - " + this.convertTime(endDate);
+	},
+	
+	daysLeft: function () {
+		var today = new Date();
+		return Math.floor((this.endDate().getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 	},
 	
 	convertTime: function (date) {

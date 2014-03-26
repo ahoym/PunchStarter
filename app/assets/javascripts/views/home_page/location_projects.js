@@ -5,7 +5,6 @@ window.PunchStarter.Views.LocationProjects = Backbone.View.extend ({
 	
 	initialize: function (options) {
 		this.location = options.location;
-		debugger
 	},
 	
 	render: function () {
