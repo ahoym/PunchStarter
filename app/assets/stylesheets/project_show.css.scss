@@ -35,21 +35,47 @@ $primary-background-color: #EEF2EA;
 			color: gray;
 			border-bottom: solid 3px $kickstarter-green;
 		}
+		
+		.money-box {
+			border-color: $kickstarter-green;
+			margin-bottom: 50px;
+		}
+		
+		.rewards-list {
+			padding: 10px;
+		}
 	}
 	
 	.project-view-side {
-		margin-top: 50px;
+		margin-top: 30px;
 		padding: 10px 0;
   	
 			p {
-				font-size: 18px;
+				font-size: 12px;
 				padding: 5px;
-			}		
+			}
+			
+			.profile-box {
+				background-color: #E4FAFC;
+				padding: 10px;
+				margin-bottom: 50px;
+			}
+			
+			.text-box {
+				background-color: #EEF2EA;
+				padding: 5px;
+				font-size: 12px;
+				margin-bottom: 20px;
+			}
 	}
 }
 
 .support-btn {
-	margin: 20px 0px;
+	margin: 20px 0px 20px 10px;
 	padding: 15px 70px;
  	background-color: $kickstarter-green;
+	
+	p {
+		font-size: 18px;
+	}
 }

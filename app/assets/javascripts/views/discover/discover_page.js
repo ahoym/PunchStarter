@@ -1,6 +1,8 @@
 window.PunchStarter.Views.Discover = Backbone.CompositeView.extend ({
 	className: "discover",
 	template: JST["discover/discover"],
+
+	
 	
 	events: { 
 		"click .category": "showCategory"

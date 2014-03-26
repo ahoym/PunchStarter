@@ -58,7 +58,7 @@ window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 	newBacking: function (id, category) {
 		var projectCategory = PunchStarter.categories.getOrFetch(category);
 		var project = projectCategory.projects().get(id);
-		
+				
 		var newBackingView = new PunchStarter.Views.NewBacking({
 			model: project
 		});

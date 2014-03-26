@@ -4,22 +4,6 @@
 window.PunchStarter.Models.Project = Backbone.Model.extend ({
 	urlRoot: "/api/projects",
 	
-	getOrFetch: function(id) {
-		var model;
-		var boards = this;
-		
-		if (model = this.get(id)) {
-			model.fetch();
-			return model;
-		} else {
-			model = new Trellino.Models.Board({ id: id });
-			model.fetch({
-				succes: function() { boards.add(model) }
-			});
-			return model;
-		}
-	},
-	
   toJSON: function () {
     var json = Backbone.Model.prototype.toJSON.call(this);
 
@@ -62,6 +46,20 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
 		}
 		
 		return this._backings;
+	},
+	
+	amountFunded: function () {
+		var total = 0;
+		
+		_(this.backings().models).each ( function(backing) {
+			total += parseInt(backing.escape('investment'));
+		})
+		
+		return total;
+	},
+	
+	numBackers: function () {
+		return this.backings().models.length;
 	},
 	
 	creator: function () {

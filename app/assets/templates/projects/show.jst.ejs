@@ -1,6 +1,7 @@
 <div class="project-header">
 	<h1><%= project.escape('title') %></h1>
 	<h6> by <%= project.creator() %></h6>
+	
 	<h5>Category: <%= gon.categories[this.model.collection.category.escape('name')] %></h5>
 	<h5>Location: <%= project.escape('project_location') %></h5>
 </div>
@@ -23,9 +24,14 @@
      </div>
 			
 		<div class="project-view-side col-xs-4">
+			<h1 class="important"><%= project.numBackers() %></h1>
+			<h4>backers</h4>
+			
+			<h1 class="important">$<%= project.amountFunded() %></h1>
 			<h4>pledged of $<%= project.escape('funding_goal') %> goal</h4>
 			
-			<h1 class="important"><%= project.daysLeft() %> <sup>days to go</sup></h1>
+			<h1 class="important"><%= project.daysLeft() %></h1>
+			<h4>days to go</h4>
 			
 			<a class="btn support-btn btn-success">
 				<p>Back This Project</p><br>
@@ -33,7 +39,13 @@
 			</a>
 			
 			<p class="field-note">This project will be funded on <%= project.endDate() %>.</p>
-			<h5><strong>Funding Duration:</strong></h5><p><%= project.fundingPeriod() %></p>
+			
+			<div class="profile-box">
+				<p>Project by</p>
+				<h3><%= project.creator() %></h3>
+			</div>
+			
+			<h5><strong>Funding period:</strong></h5><p><%= project.fundingPeriod() %></p>
 		</div>		
 	</div>	
 </div>

@@ -17,9 +17,13 @@
 				<div class="form-group">
 					<input type="text" name="backing[investment]" class="form-control money-box">
 					
-					<h4>Select your reward</h4>
-					<label>
-					<input type="radio" value="No reward"> No Reward </label><p class="l-space">No thanks, I just want to help the project. (Because you don't have a choice right now!!)</p>
+					<h4><strong>Select your reward</strong></h4>
+					
+					<div class="rewards-list">
+						<label>
+						<input type="radio" value="No reward"> No Reward </label>
+						<!-- <p class="l-space">No thanks, I just want to help the project. (Because you don't have a choice right now!!)</p> -->
+					</div>
 					
 				</div>
 				
@@ -28,14 +32,15 @@
 		</div>
       
 		<div class="project-view-side col-xs-4">
-			<h4>pledged of $<%= project.escape('funding_goal') %> goal</h4>
-			<h1 class="important"><%= project.daysLeft() %> <sup>days to go</sup></h1>
-			<button class="btn support-btn btn-success">
-				<p>Back This Project</p><br>
-				<sup style="color:black">$1 minimum pledge</sup>
-			</button>
-			<p class="field-note">This project will be funded on <%= project.endDate() %>.</p>
-			<h5><strong>Funding Duration:</strong></h5><p><%= project.fundingPeriod() %></p>
+			<div class="text-box">
+				<h6 class="field-note"><mark><strong>IMPORTANT</strong></mark></h6>
+				<p class="field-note">Kickstarter does not guarantee projects or investigate a creator's ability to complete their project. It is the responsibility of the project creator to complete their project as promised, and the claims of this project are theirs alone.</p>
+				
+				<a class="field-note" href="#">Learn more about accountability</a>
+			</div>
+			
+			<h6 class="field-note"><strong>FREQUENTLY ASKED QUESTIONS</strong></h6>			
+			<p class="field-note"></p>
 		</div>		
 	</div>	
 </div>	
