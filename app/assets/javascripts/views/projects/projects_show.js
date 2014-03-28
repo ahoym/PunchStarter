@@ -29,12 +29,12 @@ window.PunchStarter.Views.ProjectsShow = Backbone.View.extend ({
 		
 		if (!$button.hasClass("starred")) {
 			$button.toggleClass("starred");
-			$button.html("<img src='assets/unStarMe.png' height='40' width='40'> Unlike this project...");
+			$button.html("<img src='assets/unstar.png' height='40' width='40'> Unlike this project...");
 			
 			project.stars().create({ liked_project_id: project.id });
 		} else {
 			$button.toggleClass("starred");
-			$button.html("<img src='assets/starMe.png' height='40' width='40'> Like this project!");
+			$button.html("<img src='assets/star.png' height='40' width='40'> Like this project!");
 			
 			//Right now, stars are not linked to the users @ the Backbone level. Modify this when/if
 			//	a User Backbone model is created.	

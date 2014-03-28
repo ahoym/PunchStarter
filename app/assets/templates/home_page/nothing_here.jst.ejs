@@ -1,0 +1,14 @@
+<h1>Oops! There's nothing here!</h1>
+<p>It's not you, it's me. You probably visited an empty link!</p>
+<p>Have a picture of a puppy! There's a back button at the bottom of the page.</p>
+<img src="assets/puppies.jpeg" width="1000" height="800"><br><br>
+
+<a href="#" class="btn btn-primary empty-link">Back</a><br><br>
+
+<script>
+	$('.empty-link').on('click', function (event) {
+		console.log('hey');
+		event.preventDefault();
+		window.history.back();
+	})
+</script>

@@ -4,6 +4,7 @@
 window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 	routes: {
 		"": "homePage",
+		"oops": "emptyLink",
 		"start": "startPage",
 		"discover": "discoverPage",
 		"projects/new": "newProject",
@@ -63,6 +64,11 @@ window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 			model: project
 		});
 		this._swapView(newBackingView);
+	},
+	
+	emptyLink: function () {
+		var emptyLink = new PunchStarter.Views.NothingHere();
+		this._swapView(emptyLink);
 	},
 	
 	_swapView: function (view) {
