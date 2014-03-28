@@ -44,7 +44,7 @@ class Api::ProjectsController < ApplicationController
   def project_params
     params.require(:project)
       .permit(:title, :short_blurb, :project_location, 
-              :funding_duration, :funding_goal, :creator)
+              :funding_duration, :funding_goal, :filepicker_url, :creator)
   end
     
   def set_project 

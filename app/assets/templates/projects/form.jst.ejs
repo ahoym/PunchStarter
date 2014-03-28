@@ -15,8 +15,22 @@
 	<div class="col-xs-6">
 		<form>
 			<div class="form-group">
-				
 				<ol class="project-fields row">
+					
+					<li class="project-cover-photo">
+						<div class="grey-field row">
+							<div class="project-label col-xs-2">
+								<label>Project photo</label>
+							</div>
+							<div class="project-input">
+								<input
+							    type="filepicker"
+							    name="comment[image_url]"
+							    data-fp-mimetype="image/*"
+									class="btn btn-primary project-image" >
+							</div><p> If successfully uploaded, it should say in the preview box to the right!</p>
+						</div>
+					</li>
 					
 					<li class= "project-title">
 						<div class="grey-field row">
@@ -79,10 +93,10 @@
 								<label>Funding duration</label>
 							</div>
 							<div class="project-input">
-								<input 
+								<!-- <input 
 									type="radio" 
 									name="project[fundingDuration]" 
-									value="Number of days"s> Number of Days<input type="text" name="project[fundingDuration]" class="form-control new-project-duration" placeholder="1-60 days, we recommend 30 or less">
+									value="Number of days"s> --> Number of Days<input type="text" name="project[fundingDuration]" class="form-control new-project-duration" placeholder="1-60 days, we recommend 30 or less">
 									<p class="field-note">We recommend that projects last 30 days or less. Shorter durations have higher success rates, and will create a helpful sense of urgency around your project. For more on duration, see <a href="#">Kickstarter School</a>.</p>
 
 <p class="field-note">Note: After your project ends, there is a 14-day window for collecting and processing pledges. After that, you can transfer funds from your Amazon account to your bank account. Please plan accordingly.</p>
@@ -119,6 +133,7 @@
 		
 		<div class="preview-container">
 			<div class="preview-box">
+				<div class="new-project-image"></div><br>
 				<div class="new-project-title"></div><br>
 				<div class="new-project-short-blurb"></div><br><br>
 				<div class="new-project-location"></div><br>

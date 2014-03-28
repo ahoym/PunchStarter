@@ -11,6 +11,7 @@
 #  creator_id       :integer          not null
 #  created_at       :datetime
 #  updated_at       :datetime
+#  filepicker_url   :string(255)
 #
 
 class Project < ActiveRecord::Base
@@ -34,7 +35,7 @@ class Project < ActiveRecord::Base
             :funding_duration, :funding_goal, :creator, :presence => true
             
   has_many(
-    :stars,
+    :stars, :dependent => :destroy,
     :foreign_key => :liked_project_id,
     :class_name => "Star"
   )
@@ -46,7 +47,7 @@ class Project < ActiveRecord::Base
   )
 
   has_many(
-    :backings,
+    :backings, :dependent => :destroy,
     :foreign_key => :backed_project_id,
     :class_name => "Backing"
   )

@@ -3,8 +3,12 @@
 <head>
   <title>PunchStarter</title>
 	<%= include_gon %>
-  <%= javascript_include_tag "application" %>
 	<%= stylesheet_link_tag "application", :media => "all" %>
+  <script src="http://api.filepicker.io/v1/filepicker.js"></script>
+	
+  <script>filepicker.setKey(gon.filepicker_api);</script>
+	
+  <%= javascript_include_tag "application" %>
   <%= csrf_meta_tags %>
 </head>
 <body>

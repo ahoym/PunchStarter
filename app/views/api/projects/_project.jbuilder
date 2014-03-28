@@ -8,7 +8,8 @@ json.(
 	:funding_goal, 
 	:creator_id, 
 	:created_at, 
-	:updated_at
+	:updated_at,
+	:filepicker_url
 )
 
 project_body ||= nil

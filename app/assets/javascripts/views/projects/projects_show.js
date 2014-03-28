@@ -12,7 +12,7 @@ window.PunchStarter.Views.ProjectsShow = Backbone.View.extend ({
 			projectBody: this.model.projectBody()
 		});
 		this.$el.html(renderedContent);
-		
+
 		return this;
 	},
 	

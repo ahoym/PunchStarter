@@ -116,5 +116,9 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
 		var year = date.getUTCFullYear();
 		
 		return month + " " + day + ", " + year;
+	},
+	
+	percentFunded: function () {
+		return (parseFloat(this.amountFunded()) / parseFloat(this.fundingGoal) * 100);
 	}
 });

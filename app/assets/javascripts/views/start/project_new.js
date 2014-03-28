@@ -8,11 +8,14 @@ window.PunchStarter.Views.NewProject = Backbone.View.extend ({
 	 					"keyup input.new-project-title": "handleTitle",
 						"keyup .new-project-short-blurb": "handleBlurb",
 						"keyup input.new-project-location": "handleLocation",
+						"change input.project-image": "handleImage"
 					},
 	
 	render: function () {
 		var renderedContent = this.template({ project: this.model });
 		this.$el.html(renderedContent);
+    var $filePickerInput = this.$("input[type=filepicker]");
+    filepicker.constructWidget($filePickerInput[0]);
 		
 		return this;
 	},
@@ -27,6 +30,15 @@ window.PunchStarter.Views.NewProject = Backbone.View.extend ({
 	
 	handleLocation: function () {
 		this.renderPreview('.new-project-location');
+	},
+	
+	handleImage: function (event) {
+		if (!this._picture) {
+			this._picture = event.originalEvent.fpfile.url;
+			this.$("div.new-project-image").html("<h5>Picture uploaded!</h5>");
+		}
+		
+		return this._picture
 	},
 	
 	renderPreview: function (inputClass) {
@@ -47,6 +59,7 @@ window.PunchStarter.Views.NewProject = Backbone.View.extend ({
 			project_location: $project.location,
 			funding_duration: $project.fundingDuration,
 			funding_goal: $project.fundingGoal,
+			filepicker_url: this._picture,
 			category_name: $name
 		}, {
 			success: function(project) {
