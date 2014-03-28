@@ -13,3 +13,16 @@ div.sign-up {
 	background-color: white;
 	padding: 10px;
 }
+
+.demo-btn {
+	margin: 0;
+	padding: 50px 100px;
+	background-color: orange;
+	border: 2px solid black;
+	
+	p {
+		color: white;
+		font-weight: bold;
+		font-size: 30px;
+	}
+}
