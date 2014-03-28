@@ -8,7 +8,11 @@
 		<div class="navbar-collapse collapse">
 			<ul class="nav navbar-nav primary-links">
 				<li><a href="/#/discover">Discover</a></li>
+				<% if logged_in? %>
 				<li><a href="/#/projects/new">Start</a></li>
+				<% else %>
+				<li><a href="<%= new_session_url %>">Log In to Create a Project!</a></li>
+				<% end %>
 			</ul>
 			<span class="for-search-bar"></span>
 			

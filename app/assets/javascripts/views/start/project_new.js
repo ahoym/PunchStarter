@@ -35,7 +35,7 @@ window.PunchStarter.Views.NewProject = Backbone.View.extend ({
 	handleImage: function (event) {
 		if (!this._picture) {
 			this._picture = event.originalEvent.fpfile.url;
-			this.$("div.new-project-image").html("<h5>Picture uploaded!</h5>");
+			this.$("div.new-project-image").html("<img src='"+this._picture+"' width='275' height='250'>");
 		}
 		
 		return this._picture
