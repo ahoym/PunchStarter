@@ -30,6 +30,7 @@ gem 'figaro'
 gem 'aws-sdk'
 gem 'filepicker-rails'
 gem 'thin'
+gem 'seed_dump'
 
 group :production do
   gem 'rails_12factor'
