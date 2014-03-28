@@ -22,4 +22,10 @@ $(document).ready( function () {
 			$('#log-in-form').parent().toggleClass("brighten-background");
 		}
 	});
+	
+	$('.demo-button').on('click', function () {
+			$("#log-in-email").val("demo@user.com");
+			$("#log-in-pw").val("demo");
+			$(".log-in-btn").submit();
+	});
 });
