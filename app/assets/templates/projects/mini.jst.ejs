@@ -14,7 +14,7 @@
 	<h5><strong><%= project.percentFunded()%>%</strong> <span>funded</span></h5>
 	<h5><strong>$<%= project.amountFunded()%></strong> <span>pledged</span></h5>
 	<h5><strong><%= project.daysLeft() %></strong> <span>days to go</span></h5>
-	<% if (project.percentFunded() > 100) { %>
+	<% if (project.percentFunded() >= 100) { %>
 	<h4 class="greenify">Completed!</h4>
 	<% } else if (project.percentFunded() < 0) { %>
 	<h4 class="redify">Someone HATES this!</h4>

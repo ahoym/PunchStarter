@@ -11,6 +11,12 @@ window.PunchStarter.Views.Discover = Backbone.CompositeView.extend ({
 		this.$el.html(renderedContent);
 		// this.renderSubviews();
 		
+		var popularProjects = new PunchStarter.Views.MostPopular();
+		this.$('.page-views').append(popularProjects.render().$el);
+		
+		var successfullyDefunded = new PunchStarter.Views.SuccessfullyDefunded();
+		this.$('.page-views').append(successfullyDefunded.render().$el);
+		
 		return this;
 	},
 	
