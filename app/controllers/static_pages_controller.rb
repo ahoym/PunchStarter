@@ -16,7 +16,7 @@ class StaticPagesController < ApplicationController
                                   joins('LEFT JOIN backings ON backings.backed_project_id = projects.id').
                                   select('projects.*, SUM(backings.investment)').
                                   group('projects.id').
-                                  having('SUM(backings.investment) > projects.funding_goal')
+                                  having('SUM(backings.investment) >= projects.funding_goal')
                                   
     successfully_defunded = Project.limit(4).
                                     joins('LEFT JOIN backings ON backings.backed_project_id = projects.id').
