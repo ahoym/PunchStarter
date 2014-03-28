@@ -6,6 +6,5 @@ window.PunchStarter.Collections.Projects = Backbone.Collection.extend ({
 	
 	initialize: function (models, options) {
 		this.category = options.category;
-	}
-	
+	}	
 });

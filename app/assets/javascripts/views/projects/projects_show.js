@@ -3,7 +3,8 @@ window.PunchStarter.Views.ProjectsShow = Backbone.View.extend ({
 	template: JST["projects/show"],
 	
 	events: { "click .support-btn": "redirectToNewBacking",
-						"click .favorites": "starred"
+						"click .favorites": "starred",
+						"click .add-to-staff-picks": "staffPickWorthy"
 					},
 		
 	render: function () {
@@ -40,5 +41,13 @@ window.PunchStarter.Views.ProjectsShow = Backbone.View.extend ({
 		  var star = project.stars().findWhere({ liked_project_id: project.id });
 			star.destroy();
 		}	
-	}
+	},
+
+	// Useful when User model is created.
+	// staffPickWorthy: function (event) {
+	// 	event.preventDefault();
+	// 	
+	// 	PunchStarter.staffPicks.add(this.model);
+	// 	$('.add-to-staff-picks').text("Staff Favorite!");
+	// }
 });

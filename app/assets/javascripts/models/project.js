@@ -119,6 +119,6 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
 	},
 	
 	percentFunded: function () {
-		return (parseFloat(this.amountFunded()) / parseFloat(this.fundingGoal) * 100);
+		return (parseFloat(this.amountFunded()) / parseFloat(this.escape('funding_goal')) * 100);
 	}
 });

@@ -1,0 +1,11 @@
+<div class="mini-picture">
+	<img src="<%= project.filepicker_url %>">
+</div>
+<h5><%= project.escape("title") %></h5>
+<p class="field-note">by <%= project.creator() %></p>
+<p class="field-note"><%= project.escape("short_blurb") %></p>
+<p class="field-note"><%= project.escape("project_location") %></p>
+
+<h5><%= project.percentFunded()%><p class="s-space"><%= project.amounFunded()%></p> <%= project.daysLeft() %></h5>
+<p class="field-note">FUNDED<p class="s-space">PLEDGED</p><p class="s-space">DAYS TO GO</p></p>
+	

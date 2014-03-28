@@ -68,6 +68,7 @@ window.PunchStarter.Views.NewProject = Backbone.View.extend ({
 				project.creator();
 				var category = PunchStarter.categories.getOrFetch($name);
 				category.projects().add(project);
+				PunchStarter.allProjects.add(project);
 				
 				Backbone.history.navigate("#/projects/" + project.id + "/" + project.escape('category_name') + "/new",
 					{ trigger: true }

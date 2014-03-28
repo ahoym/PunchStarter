@@ -1,0 +1,18 @@
+<div class="mid-picture col-xs-5">
+	<img src="<%= project.escape('filepicker_url') %>" height="300" width="400">
+</div>
+
+<div class="front-staff-view-body col-xs-4">
+	<h2><a href="/#/projects/<%= project.id %>/<%= category %>">
+		<%= project.escape("title") %>
+	</a></h2>
+	<p>by <%= project.creator() %></p>
+	<p><%= project.escape("short_blurb") %></p>
+	<p><%= project.escape("project_location") %></p>
+
+	<div class="project-stats">
+		<h5><strong><%= project.percentFunded()%>%</strong> <span>funded</span></h5>
+		<h5><strong>$<%= project.amountFunded()%></strong> <span>pledged</span></h5>
+		<h5><strong><%= project.daysLeft() %></strong> <span>days to go</span></h5>
+	</div>
+</div>

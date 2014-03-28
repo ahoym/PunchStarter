@@ -1,7 +1,7 @@
 <div class="row">
  <div class="col-xs-9 page-body">
- 	 <h3>Staff Picks: </h3>
- 	 
+ 	 <h3>Staff Picks: <p class="staff-change"> </p></h3>
+ 	 <div class="staff-pick-project"></div>
  </div>
  
 	<div class="col-xs-3">
@@ -10,7 +10,7 @@
 				<% for (var key in gon.categories) { %>
 					<% if (gon.categories.hasOwnProperty(key)) { %>
 					<li>
-						<a href="#"><%= gon.categories[key] %></a>
+						<a href="#" class="sp-category" data-cat="<%= key %>"><%= gon.categories[key] %></a>
 					</li>
 					<% } %>
 				<% } %>

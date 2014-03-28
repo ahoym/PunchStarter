@@ -21,7 +21,7 @@ class Project < ActiveRecord::Base
     "dance" => "Dance", 
     "design" => "Design", 
     "fashion" => "Fashion",
-    "media" => "Film & Video",
+    "film" => "Film & Video",
     "food" => "Food",
     "games" => "Games",
     "music" => "Music",

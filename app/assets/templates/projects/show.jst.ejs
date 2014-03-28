@@ -50,6 +50,10 @@
 			</div>
 			
 			<h5><strong>Funding period:</strong></h5><p><%= project.fundingPeriod() %></p>
+			
+			<% if (gon.admin) { %>
+				<button class="add-to-staff-picks btn btn-primary">Add to Staff Picks</button>
+			<% } %>
 		</div>		
 	</div>	
 </div>
