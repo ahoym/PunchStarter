@@ -2,11 +2,5 @@
 <% cName = category.escape('name') %>
 <h1><%= gon.categories[cName] %></h1>
 
-<ol class="project-fields">
-	<% _( category.projects().models).each(function (project) { %>
-		<li><a href="/#/projects/<%= project.id %>/<%= cName %>">
-		<%= project.escape('title') %>
-		</a>
-		</li>
-	<% }) %>
-</ol>
+<div class="mini-views-field row">
+</div>

@@ -23,6 +23,9 @@ window.PunchStarter.Views.HomePage = Backbone.CompositeView.extend ({
 		});
 		this.$('.page-views').append(locationProjects.render().$el);
 		
+		var popularProjects = new PunchStarter.Views.MostPopular();
+		this.$('.page-views').append(popularProjects.render().$el);
+		
 		return this;
 	}
 	
