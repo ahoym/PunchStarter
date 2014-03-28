@@ -1,11 +1,23 @@
-<div class="mini-picture">
-	<img src="<%= project.filepicker_url %>">
-</div>
-<h5><%= project.escape("title") %></h5>
+
+<img src="<%= project.escape('filepicker_url') %>" height="175" width="200">
+
+<h4><strong><a href="/#/projects/<%= project.id %>/<%= project.collection.category.escape('name') %>">
+	<%= project.escape("title") %>
+</a></strong></h4>
+
+
 <p class="field-note">by <%= project.creator() %></p>
 <p class="field-note"><%= project.escape("short_blurb") %></p>
 <p class="field-note"><%= project.escape("project_location") %></p>
 
-<h5><%= project.percentFunded()%><p class="s-space"><%= project.amounFunded()%></p> <%= project.daysLeft() %></h5>
-<p class="field-note">FUNDED<p class="s-space">PLEDGED</p><p class="s-space">DAYS TO GO</p></p>
+<div class="project-stats">
+	<h5><strong><%= project.percentFunded()%>%</strong> <span>funded</span></h5>
+	<h5><strong>$<%= project.amountFunded()%></strong> <span>pledged</span></h5>
+	<h5><strong><%= project.daysLeft() %></strong> <span>days to go</span></h5>
+	<% if (project.percentFunded() > 100) { %>
+	<h4 class="greenify">Completed!</h4>
+	<% } else if (project.percentFunded() < 0) { %>
+	<h4 class="redify">Someone HATES this!</h4>
+	<% } %>
+</div>
 	

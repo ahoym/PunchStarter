@@ -1,10 +1,11 @@
+$primary-color: #EEF2EA;
+
 .page-views {
 	list-style-type: none;
-	padding: 20px 0 40px 150px;
+	padding: 20px 0 40px 100px;
 
-	.li {
-		padding-bottom: 20px;
-		text-align: top;		
+	.page-view {
+		margin-bottom: 70px;
 	}
 }
 
@@ -33,5 +34,20 @@
 		span {
 			font-weight: normal;
 		}
+	}
+}
+
+.mini-views-field {
+	margin-top: 5px;
+	padding: 10px 0;
+	
+	.mini-project-view {
+		height: 450px;
+		width: 250px;
+		margin: 0px 5px;
+		border-radius: 10px;
+		border: solid 5px lightgray;
+		background-color: $primary-color;
+		padding: 20px;
 	}
 }

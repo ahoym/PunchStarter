@@ -12,6 +12,7 @@ class SessionsController < ApplicationController
       redirect_to "/"
     else
       flash.now[:errors] = ["Invalid login combination."]
+      render :new
     end
   end
   

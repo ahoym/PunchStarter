@@ -1,18 +1,11 @@
 window.PunchStarter.Views.LocationProjects = Backbone.View.extend ({
 	tagName: "li",
 	template: JST["home_page/location_projects"],
-	className: "location-projects",
+	className: "page-view location-projects",
 	
 	initialize: function (options) {
 		this.location = options.location;
 		this.projects = this.projectsAtLocation();
-	},
-	
-	render: function () {
-		var renderedContent = this.template({ location: this.location })
-		this.$el.html(renderedContent);
-		
-		return this;
 	},
 	
 	projectsAtLocation: function () {
@@ -32,5 +25,19 @@ window.PunchStarter.Views.LocationProjects = Backbone.View.extend ({
 		})
 		
 		return this._projects;
-	}
+	},
+	
+	render: function () {
+		var renderedContent = this.template({ location: this.location })
+		this.$el.html(renderedContent);
+		
+		// Take first 4 only.
+		var view = this;
+		this.projectsAtLocation().slice(1,5).forEach (function (project) {
+			var miniProjectView = new PunchStarter.Views.MiniView({ model: project });
+			view.$('.mini-views-field').append(miniProjectView.render().$el);
+		});
+		
+		return this;
+	},
 });

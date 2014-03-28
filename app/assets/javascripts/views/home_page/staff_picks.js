@@ -1,6 +1,6 @@
 window.PunchStarter.Views.StaffPicks = Backbone.CompositeView.extend ({
 	tagName: 'li',
-	className: "staff-picks",
+	className: "page-view staff-picks",
 	template: JST["home_page/staff_picks"],
 
 	events: { "click .sp-category": "switchView"},
@@ -12,7 +12,7 @@ window.PunchStarter.Views.StaffPicks = Backbone.CompositeView.extend ({
 		var renderedContent = this.template();
 		this.$el.html(renderedContent);
 		// default view, is switched with switchView anyhow.
-		var view = this.getView("art");
+		var view = this.getView("tech");
 		this.$('.staff-pick-project').html(view.render().$el);
 		
 		return this;

@@ -1,16 +1,28 @@
 class StaticPagesController < ApplicationController
   def root
     categories = Project::CATEGORIES
-    most_recent = Project.all.order("created_at DESC")
-    most_popular = Project.joins('LEFT JOIN stars ON stars.liked_project_id = projects.id').
+    
+    # putting limits on because I don't believe pagination can be done on these queries.
+    
+    most_popular = Project.limit(4).
+                           joins('LEFT JOIN stars ON stars.liked_project_id = projects.id').
                            select('projects.*, COUNT(stars.id) AS stars_count').
                            group('projects.id').
                            order('stars_count DESC')
                            
-    successfully_funded = Project.joins('LEFT JOIN backings ON backings.backed_project_id = projects.id').
-                                  select('projects.*, SUM(backings.id) AS backings_count').
+    most_recent = Project.all.order("created_at DESC").limit(4)
+                           
+    successfully_funded = Project.limit(4).
+                                  joins('LEFT JOIN backings ON backings.backed_project_id = projects.id').
+                                  select('projects.*, SUM(backings.investment)').
                                   group('projects.id').
-                                  order('backings_count desc')
+                                  having('SUM(backings.investment) > projects.funding_goal')
+                                  
+    successfully_defunded = Project.limit(4).
+                                    joins('LEFT JOIN backings ON backings.backed_project_id = projects.id').
+                                    select('projects.*, SUM(backings.investment)').
+                                    group('projects.id').
+                                    having('SUM(backings.investment) < ?', 0)                                  
     
     staff_picks = Project.joins('LEFT JOIN stars ON stars.liked_project_id = projects.id').
                           joins('JOIN project_categories ON project_categories.project_id = projects.id').
@@ -20,8 +32,10 @@ class StaticPagesController < ApplicationController
                               
     gon.filepicker_api = ENV["FILEPICKER_API"]
     gon.categories = categories
-    gon.most_recent = most_recent
-    gon.most_popular = most_popular
+    gon.most_recent = most_recent.map { |mr| mr.id }
+    gon.successfully_funded = successfully_funded.map { |sf| sf.id }
+    gon.successfully_defunded = successfully_defunded.map { |sd| sd.id }    
+    gon.most_popular = most_popular.map { |mp| mp.id }
     gon.staff_picks = staff_picks.map{ |sp| sp.id }
     
     # Right now this is only used for the name. Will be irrelevant once a
