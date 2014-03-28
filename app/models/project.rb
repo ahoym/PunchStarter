@@ -31,8 +31,8 @@ class Project < ActiveRecord::Base
     "theater" => "Theater"
   }
   
-  validates :title, :short_blurb, :project_location,
-            :funding_duration, :funding_goal, :creator_id, :presence => true
+  # validates :title, :short_blurb, :project_location,
+  #           :funding_duration, :funding_goal, :creator_id, :presence => true
             
   has_many(
     :stars, :dependent => :destroy,

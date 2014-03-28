@@ -12,7 +12,7 @@
 #
 
 class ProjectBody < ActiveRecord::Base
-  validates :project, :description, :challenges, :faq, :presence => true
+  # validates :project, :description, :challenges, :faq, :presence => true
   
   belongs_to(
     :project,

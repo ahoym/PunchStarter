@@ -12,7 +12,7 @@
 
 class Backing < ActiveRecord::Base
   
-  validates :backer_id, :backed_project_id, :investment, :presence => :true
+  # validates :backer_id, :backed_project_id, :investment, :presence => :true
   
   belongs_to :backer,
              :foreign_key => :backer_id,

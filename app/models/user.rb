@@ -16,9 +16,9 @@ class User < ActiveRecord::Base
   attr_reader :password
   
   before_validation :ensure_session_token
-  validates :name, :email, :password_digest, :session_token, presence: true
-  validates :name, :email, uniqueness: true
-  validates :session_token, presence: true, uniqueness: true
+  # validates :name, :email, :password_digest, :session_token, presence: true
+#   validates :name, :email, uniqueness: true
+#   validates :session_token, presence: true, uniqueness: true
 
   has_many(
     :liked_projects,

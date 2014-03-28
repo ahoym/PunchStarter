@@ -10,7 +10,7 @@
 #
 
 class Star < ActiveRecord::Base
-  validates :liker_id, :liked_project_id, :presence => true
+  # validates :liker_id, :liked_project_id, :presence => true
   
   belongs_to :liker,
              :foreign_key => :liker_id,
