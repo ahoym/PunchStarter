@@ -23,9 +23,10 @@ $(document).ready( function () {
 		}
 	});
 	
-	$('.demo-button').on('click', function () {
+	$('.demo-btn').on('click', function () {
+		console.log('hey')
 			$("#log-in-email").val("demo@user.com");
 			$("#log-in-pw").val("demo");
-			$(".log-in-btn").submit();
+			$(".log-in-btn").click();
 	});
 });
