@@ -31,3 +31,9 @@ function mostPopular() {
 	
 	return window._mostPopular;
 }
+
+$(function() {
+	$('a').on('click', function () {
+	 $('body').scrollTop(0);	
+	})
+});
