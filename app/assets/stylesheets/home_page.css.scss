@@ -2,10 +2,16 @@ $primary-color: #EEF2EA;
 
 .page-views {
 	list-style-type: none;
-	padding: 20px 0 40px 100px;
+	padding: 20px 0 40px 0px;
 
 	.page-view {
-		margin-bottom: 70px;
+		padding: 20px 20px 30px 100px;
+		margin-bottom: 30px;
+	}
+	
+	.page-view:nth-child(2n) {
+		border: solid 1px lightgray;
+		background-color: $primary-color;
 	}
 }
 
