@@ -21,7 +21,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    render :show
+    render "show.jbuilder"
   end
   
   private

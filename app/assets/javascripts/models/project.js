@@ -79,7 +79,7 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
 	
 	creator: function () {
 		if (!this._creator) {
-			this._creator = gon.currentUser;
+			this._creator = new PunchStarter.Models.User({ id: gon.currentUserId });
 		}
 		
 		return this._creator;

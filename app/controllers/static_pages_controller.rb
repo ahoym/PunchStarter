@@ -42,7 +42,7 @@ class StaticPagesController < ApplicationController
     #  User model is implemented at the Backbone layer. A lot of the above
     #  queries will also be unnecessary with this.
     if logged_in?
-      gon.currentUser = current_user.name
+      gon.currentUserId = current_user.id
       gon.admin = current_user.admin
     end    
     
