@@ -8,4 +8,4 @@ window.PunchStarter.Views.MiniView = Backbone.View.extend ({
 		
 		return this;
 	}
-})
+});
