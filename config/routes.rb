@@ -7,14 +7,17 @@ PunchStarter::Application.routes.draw do
       resources :project_bodies, :only => [:new, :create, :destroy, :update]
       resources :backings, :only => [:create]
       resources :stars, :only => [:create, :destroy]
+    
+      collection do
+        get 'most_recent', to: 'projects#most_recent'
+        get 'most_popular', to: 'projects#most_popular'
+        get 'successfully_funded', to: 'projects#funded'
+        get 'successfully_defunded', to: 'projects#defunded'
+        get 'staff_picks', to: 'projects#staff_picks'        
+      end
     end
     
-    get 'projects/project_location', to: 'projects#location'
-    get 'projects/most_recent', to: 'projects#most_recent'
-    get 'projects/most_popular', to: 'projects#most_popular'
-    get 'projects/successfully_funded', to: 'projects#funded'
-    get 'projects/successfully_defunded', to: 'projects#defunded'
-    get 'projects/staff_picks', to: 'projects#staff_picks'
+    get 'projects/project_location/:location', :controller => 'projects', :action => 'project_location'
   end
   
   resources :users

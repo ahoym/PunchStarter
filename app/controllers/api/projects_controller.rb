@@ -40,9 +40,12 @@ class Api::ProjectsController < ApplicationController
     render "api/projects/show"
   end
   
-  def location
+  def project_location
     debugger
+    
     @projects = Project.where('project_location = ?', "San Francisco, CA")
+    
+    render "api/projects/index.jbuilder"
   end
   
   def most_recent
