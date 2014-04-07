@@ -6,7 +6,7 @@
 	<h2><a href="/#/projects/<%= project.id %>/<%= category %>">
 		<%= project.escape("title") %>
 	</a></h2>
-	<p>by <%= project.creator() %></p>
+	<p>by <%= project.creator().escape('name') %></p>
 	<p><%= project.escape("short_blurb") %></p>
 	<p><%= project.escape("project_location") %></p>
 

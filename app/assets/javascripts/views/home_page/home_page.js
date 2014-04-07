@@ -17,8 +17,9 @@ window.PunchStarter.Views.HomePage = Backbone.CompositeView.extend ({
 		this.$el.append(renderedContent);
 		
 		var staffPicks = new PunchStarter.Views.StaffPicks();
-		this.$('.page-views').append(staffPicks.render().$el);
+		this.$('.page-views').append(staffPicks.$el);
 		
+		// to-do replace hard coded "San Francisco, CA" with content in future-searchable field.
 		var locationProjects = new PunchStarter.Views.LocationProjects({
 			location: "San Francisco, CA"
 		});

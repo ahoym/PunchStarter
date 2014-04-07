@@ -6,11 +6,19 @@ window.PunchStarter.Views.StaffPicks = Backbone.CompositeView.extend ({
 	events: { "click .sp-category": "switchView"},
 
 	initialize: function () {
+		var _thisView = this;
+		this.picks = new PunchStarter.Collections.Projects([], { extension: "staff_picks" });
+		this.picks.fetch({
+			success: function (projects) {
+				_thisView.render(projects);
+			}
+		});
 	},
 	
-	render: function () {
+	render: function (projects) {
 		var renderedContent = this.template();
 		this.$el.html(renderedContent);
+		
 		// default view, is switched with switchView anyhow.
 		var view = this.getView("tech");
 		this.$('.staff-pick-project').html(view.render().$el);
@@ -19,13 +27,7 @@ window.PunchStarter.Views.StaffPicks = Backbone.CompositeView.extend ({
 	},
 	
 	getView: function (category) {
-		var targetProject = null;
-		
-		for (var i in staffPicks()) { 
-			if (staffPicks()[i].collection.category.escape('name') === category) {
-				targetProject = staffPicks()[i];
-			} 
-		}
+		var targetProject = this.picks.find( function (model) {	return model._category === category; });
 		
 		return new PunchStarter.Views.FrontStaffView({ 
 							model: targetProject, 
@@ -35,6 +37,7 @@ window.PunchStarter.Views.StaffPicks = Backbone.CompositeView.extend ({
 	
 	switchView: function (event) {
 		event.preventDefault();
+		this.$('.staff-pick-project').empty();
 		var category = $(event.currentTarget).data('cat');
 		
 		var view = this.getView(category);
