@@ -29,7 +29,7 @@ window.PunchStarter.Views.HomePage = Backbone.CompositeView.extend ({
 		this.$('.page-views').append(recentProjects.$el);
 		
 		var successfullyFunded = new PunchStarter.Views.SuccessfullyFunded();
-		this.$('.page-views').append(successfullyFunded.render().$el);
+		this.$('.page-views').append(successfullyFunded.$el);
 		
 		return this;
 	}

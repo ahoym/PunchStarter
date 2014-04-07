@@ -56,7 +56,7 @@ class Api::ProjectsController < ApplicationController
   def most_popular
     @projects = Project.limit(4).
                         joins('LEFT JOIN stars ON stars.liked_project_id = projects.id').
-                        select('projects.*, COUNT(stars.id) AS stars_count').
+                        select('projects.*, SUM(stars.id) AS stars_count').
                         group('projects.id').
                         order('stars_count DESC')
     

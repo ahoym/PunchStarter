@@ -9,13 +9,12 @@ window.PunchStarter.Views.Discover = Backbone.CompositeView.extend ({
 	render: function () {
 		var renderedContent = this.template({ categories: this.collection });
 		this.$el.html(renderedContent);
-		// this.renderSubviews();
 		
 		var popularProjects = new PunchStarter.Views.MostPopular();
-		this.$('.page-views').append(popularProjects.render().$el);
+		this.$('.page-views').append(popularProjects.$el);
 		
 		var successfullyDefunded = new PunchStarter.Views.SuccessfullyDefunded();
-		this.$('.page-views').append(successfullyDefunded.render().$el);
+		this.$('.page-views').append(successfullyDefunded.$el);
 		
 		return this;
 	},
@@ -30,7 +29,6 @@ window.PunchStarter.Views.Discover = Backbone.CompositeView.extend ({
 			model: category
 		});
 
-		// this.addSubview(".discover-categories-body", categoryView);
 		$(".discover-categories-body").append(categoryView.render().$el);		
 	}
 });
