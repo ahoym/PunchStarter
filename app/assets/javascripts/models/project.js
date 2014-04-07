@@ -40,7 +40,6 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
 			delete jsonResp.stars;
 		}
 
-
     return jsonResp;
 	},
 	

@@ -1,20 +1,3 @@
-function mostRecent() {
-	if (!window._mostRecent) {
-		window._mostRecent = [];
-		
-		for (var i = 0; i < gon.most_recent.length; i++) {
-			PunchStarter.categories.forEach( function(category) {
-				category.projects().models.forEach( function(project) {
-					if (project.id === gon.most_recent[i]) {
-						window._mostRecent.push(project);
-					}
-				})
-			});
-		}
-	}
-	
-	return window._mostRecent;
-}
 
 function successfullyFunded() {
 	if (!window._successfullyFunded) {
