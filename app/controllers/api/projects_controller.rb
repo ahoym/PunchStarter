@@ -41,9 +41,8 @@ class Api::ProjectsController < ApplicationController
   end
   
   def project_location
-    debugger
-    
-    @projects = Project.where('project_location = ?', "San Francisco, CA")
+    location = parse_location(params[:location])  
+    @projects = Project.where('project_location = ?', location).limit(4)
     
     render "api/projects/index.jbuilder"
   end
@@ -103,5 +102,11 @@ class Api::ProjectsController < ApplicationController
     
   def set_project 
     @project = Project.find(params[:id])
+  end
+  
+  # Converts san+francisco-ca to San Francisco, CA. Looks for latter in database.
+  # Notes: May run into problems if a city has a '-' in it. Is there such a city?
+  def parse_location(location)
+    location.split('+').map(&:capitalize).join(" ").gsub(/-(\w+)/) { ", #{$1.upcase}" }
   end
 end

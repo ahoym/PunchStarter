@@ -30,3 +30,12 @@ unless stars.nil?
 		json.partial!("api/stars/star", :star => star)
 	end
 end
+
+json.category(category)
+
+creator ||= nil
+unless creator.nil?
+	json.creator do
+		json.partial!("users/user", :user => creator)
+	end
+end

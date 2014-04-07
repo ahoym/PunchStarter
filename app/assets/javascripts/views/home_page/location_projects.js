@@ -5,35 +5,29 @@ window.PunchStarter.Views.LocationProjects = Backbone.View.extend ({
 	
 	initialize: function (options) {
 		this.location = options.location;
-		this.projects = this.projectsAtLocation();
+		
+		// Finds projects with location === options.location
+		var _thisView = this;
+		var extension = "project_location/" + this.parseLocation();
+		var projs = new PunchStarter.Collections.Projects([], { extension: extension });
+		projs.fetch({ 
+			success: function (projects) {
+			_thisView.render(projects);
+			}
+		});
 	},
 	
-	projectsAtLocation: function () {
-		if (!this._projects || this._projects[0] != this.location) {
-			this._projects = [this.location];
-		} else {
-			return this._projects;
-		}
-		
-		var view = this;
-		_(PunchStarter.categories.models).each( function (category) {
-			_(category.projects().models).each( function (project) {
-				if (project.escape('project_location') === view.location) {
-					view._projects.push(project);
-				}
-			})
-		})
-		
-		return this._projects;
+	// Parse for url-string
+	parseLocation: function() {
+		return this.location.replace(/, /g, '-').replace(/ /g, '+');
 	},
 	
-	render: function () {
+	render: function (projects) {
 		var renderedContent = this.template({ location: this.location })
 		this.$el.html(renderedContent);
 		
-		// Take first 4 only.
 		var view = this;
-		this.projectsAtLocation().slice(1,5).forEach (function (project) {
+		projects.forEach (function (project) {
 			var miniProjectView = new PunchStarter.Views.MiniView({ model: project });
 			view.$('.mini-views-field').append(miniProjectView.render().$el);
 		});

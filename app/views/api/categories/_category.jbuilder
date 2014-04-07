@@ -13,7 +13,8 @@ unless projects.nil?
 									:project => project, 
 									:project_body => project.project_body,
 									:backings => project.backings,
-									:stars => project.stars
+									:stars => project.stars,
+									:category => category.name
 									)
 	end
 end

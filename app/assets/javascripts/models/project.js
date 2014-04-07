@@ -29,6 +29,17 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
 			this.stars().set(jsonResp.stars, { parse: true });
 			delete jsonResp.stars;
 		}
+		
+		if (jsonResp.category) {
+			this._category = jsonResp.category;
+			delete jsonResp.category;
+		}
+		
+		if (jsonResp.creator) {
+			this.creator().set(jsonResp.creator, { parse: true });
+			delete jsonResp.stars;
+		}
+
 
     return jsonResp;
 	},
@@ -83,6 +94,14 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
 		}
 		
 		return this._creator;
+	},
+	
+	category: function() {
+		if (!this._category) {
+			this._category = "";
+		}
+		
+		return this._category;
 	},
 
 	startDate: function () {
