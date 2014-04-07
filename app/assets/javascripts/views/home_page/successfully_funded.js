@@ -7,10 +7,10 @@ window.PunchStarter.Views.SuccessfullyFunded = Backbone.View.extend ({
 		var _thisView = this;
 		var funded = new PunchStarter.Collections.Projects([], { extension: "successfully_funded" });
 		funded.fetch({
-			success: function(projects) {
+			success: function (projects) {
 				_thisView.render(projects);
 			}
-		})
+		});
 	},
 	
 	render: function (projects) {

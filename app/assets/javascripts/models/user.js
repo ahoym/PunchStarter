@@ -1,11 +1,5 @@
 "use strict"
 
 window.PunchStarter.Models.User = Backbone.Model.extend ({
-	urlRoot: "/users",
-	
-	parse: function (jsonResp) {
-    debugger
-
-    return jsonResp;
-	}
+	urlRoot: "/users"
 });

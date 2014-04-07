@@ -79,7 +79,7 @@ class Api::ProjectsController < ApplicationController
                         select('projects.*, SUM(backings.investment)').
                         group('projects.id').
                         having('SUM(backings.investment) < ?', 0)
-                        
+  
     render "api/projects/index.jbuilder"
   end
   

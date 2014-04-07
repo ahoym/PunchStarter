@@ -1,6 +1,6 @@
 <div class="project-header">
 	<h1><%= project.escape('title') %></h1>
-	<h6> by <%= project.creator() %></h6>
+	<h6> by <%= project.creator().escape('name') %></h6>
 	
 	<h5>Category: <%= gon.categories[this.model.collection.category.escape('name')] %></h5>
 	<h5>Location: <%= project.escape('project_location') %></h5>
@@ -46,7 +46,7 @@
 			
 			<div class="profile-box">
 				<p>Project by</p>
-				<h3><%= project.creator() %></h3>
+				<h3><%= project.creator().escape('name') %></h3>
 			</div>
 			
 			<h5><strong>Funding period:</strong></h5><p><%= project.fundingPeriod() %></p>

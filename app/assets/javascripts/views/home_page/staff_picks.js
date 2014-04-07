@@ -21,6 +21,7 @@ window.PunchStarter.Views.StaffPicks = Backbone.CompositeView.extend ({
 		
 		// default view, is switched with switchView anyhow.
 		var view = this.getView("tech");
+		this.$('.staff-change').html(gon.categories["tech"]);
 		this.$('.staff-pick-project').html(view.render().$el);
 		
 		return this;
@@ -37,10 +38,12 @@ window.PunchStarter.Views.StaffPicks = Backbone.CompositeView.extend ({
 	
 	switchView: function (event) {
 		event.preventDefault();
+		this.$('.staff-change').empty();
 		this.$('.staff-pick-project').empty();
 		var category = $(event.currentTarget).data('cat');
 		
 		var view = this.getView(category);
+		this.$('.staff-change').html(gon.categories[category]);
 		this.$('.staff-pick-project').html(view.render().$el);
 	}
 });

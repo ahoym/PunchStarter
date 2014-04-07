@@ -5,7 +5,7 @@ window.PunchStarter.Views.SuccessfullyDefunded = Backbone.View.extend ({
 		
 	initialize: function () {
 		var _thisView = this;
-		var defunded = new PunchStarter.Collections.Projects([], { extention: "successfully_defunded" });
+		var defunded = new PunchStarter.Collections.Projects([], { extension: "successfully_defunded" });
 		defunded.fetch({
 			success: function (projects) {
 				_thisView.render(projects);
