@@ -10,7 +10,7 @@
 
 class Category < ActiveRecord::Base
 
-  validates :name, :presence => true, inclusion: { in: Project::CATEGORIES.keys }
+  # validates :name, :presence => true, inclusion: { in: Project::CATEGORIES.keys }
   
   has_many(
     :project_categories,
