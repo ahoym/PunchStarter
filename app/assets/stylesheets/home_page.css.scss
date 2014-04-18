@@ -56,6 +56,17 @@ $primary-color: #EEF2EA;
 		background-color: white;
 		padding: 20px;
 	}
+	
+	.mini-project-view:hover, .mini-project-view:focus{
+	  -moz-box-shadow:10px 10px 7px rgba(0,0,0,.7);
+	  -webkit-box-shadow: 10px 10px 7px rgba(0,0,0,.7);
+	  box-shadow:10px 10px 7px rgba(0,0,0,.7);
+	  -webkit-transform: scale(1.05);
+	  -moz-transform: scale(1.05);
+	  -o-transform: scale(1.05);
+	  position:relative;
+	  z-index:5;
+	}
 }
 
 .staff-change {
