@@ -53,7 +53,9 @@ window.PunchStarter.Views.NewProject = Backbone.View.extend ({
 		var category = PunchStarter.categories.getOrFetch($name);
 		var $project = $('form').serializeJSON()["project"];
 		
-		category.projects().create({
+		var project = new PunchStarter.Models.Project();
+		
+		project.save({
 			title: $project.title, 
 			short_blurb: $project.shortBlurb,
 			project_location: $project.location,
@@ -63,16 +65,36 @@ window.PunchStarter.Views.NewProject = Backbone.View.extend ({
 			category_name: $name
 		}, {
 			success: function(project) {
-				// category.projects().create doesn't seem to add the project
-				//	to its collection.
+				//sets project creator
 				project.creator();
+				
 				var category = PunchStarter.categories.getOrFetch($name);
 				category.projects().add(project);
-				PunchStarter.allProjects.add(project);
 				
 				Backbone.history.navigate("#/projects/" + project.id + "/" + project.escape('category_name') + "/new",
 					{ trigger: true }
 				);
+			},
+			error: function(model, xhr) {
+				$('.alert').toggleClass('alert-danger');
+				
+				var errors = "";
+				for (var i = 0; i < xhr.responseJSON.length; i++) {
+					errors += ("<li>" + xhr.responseJSON[i] + "</li>");
+				}
+				
+				// need to add these because the JSON response is for projects only, not image/category.
+				if ($('form').serializeJSON()['project']['image_url'] === "") {
+					errors += ("<li>A Picture wasn't uploaded!</li>");
+				}
+				
+				if ($('form').serializeJSON()['category'].name === "") {
+					errors += ("<li>Category can't be blank.</li>");
+				}
+				
+				$('.alert').html('<h3>Whoops!</h3><ul>' + errors + '</ul>');
+					
+				$('body').scrollTop(0);
 			}
 		});	
 	}

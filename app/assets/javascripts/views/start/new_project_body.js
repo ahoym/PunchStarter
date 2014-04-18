@@ -4,6 +4,7 @@ window.PunchStarter.Views.NewProjectBody = Backbone.View.extend ({
 	events: { "submit form": "submit" },
 	
 	render: function () {
+		$('body').scrollTop(0);
 		var renderedContent = this.template({ project: this.model });
 		this.$el.html(renderedContent);
 		

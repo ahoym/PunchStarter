@@ -1,3 +1,7 @@
+User.create!([
+  {email: "a@test.com", name: "Test User A", password_digest: "$2a$10$72dAF7vVEeVC.bIw0Jr5meYOnb0Q3AOx6wFK6mEs6snU8Izqlx9EG", session_token: "x7ISr6DgdRpNjT-QSDOhYg", admin: false},
+  {email: "malcolm@admin.com", name: "Malcolm Ahoy", password_digest: "$2a$10$/N7v.chQ1.2lXKA4AlhVPeSVpyHfUGSXomnKVLXPq.Wzv.CEhIM2e", session_token: "ioiBkEt5kcsNBSDs0znsTQ", admin: true}
+])
 Backing.create!([
   {investment: 1800, backer_id: 1, backed_project_id: 1},
   {investment: -100, backer_id: 1, backed_project_id: 4},
@@ -90,7 +94,4 @@ Star.create!([
   {liker_id: 2, liked_project_id: 10},
   {liker_id: 2, liked_project_id: 19}
 ])
-User.create!([
-  {email: "a@test.com", name: "Test User A", password_digest: "$2a$10$72dAF7vVEeVC.bIw0Jr5meYOnb0Q3AOx6wFK6mEs6snU8Izqlx9EG", session_token: "x7ISr6DgdRpNjT-QSDOhYg", admin: false},
-  {email: "malcolm@admin.com", name: "Malcolm Ahoy", password_digest: "$2a$10$/N7v.chQ1.2lXKA4AlhVPeSVpyHfUGSXomnKVLXPq.Wzv.CEhIM2e", session_token: "ioiBkEt5kcsNBSDs0znsTQ", admin: true}
-])
+

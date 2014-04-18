@@ -8,9 +8,6 @@ window.PunchStarter = {
 	Routers: {},
 
 	initialize: function () {
-		PunchStarter.allProjects = new PunchStarter.Collections.AllProjects();
-		PunchStarter.allProjects.fetch();
-		
 		PunchStarter.categories = new PunchStarter.Collections.Categories();
 		PunchStarter.categories.fetch({
 			success: function() {

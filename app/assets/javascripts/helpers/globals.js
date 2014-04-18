@@ -1,5 +1,5 @@
 $(function() {
 	$('a').on('click', function () {
-	 $('body').scrollTop(0);	
-	})
+	 $('body').scrollTop(0);
+	});
 });
