@@ -25,7 +25,7 @@ window.PunchStarter.Views.HomePage = Backbone.CompositeView.extend ({
 		});
 		this.$('.page-views').append(locationProjects.$el);
 		
-		var recentProjects = new PunchStarter.Views.Subcategory({ extension: "successfully_funded" });
+		var recentProjects = new PunchStarter.Views.Subcategory({ extension: "most_recent" });
 		this.$('.page-views').append(recentProjects.$el);
 		
 		var successfullyFunded = new PunchStarter.Views.Subcategory({ extension: "successfully_funded" });
