@@ -10,10 +10,10 @@ window.PunchStarter.Views.Discover = Backbone.CompositeView.extend ({
 		var renderedContent = this.template({ categories: this.collection });
 		this.$el.html(renderedContent);
 		
-		var popularProjects = new PunchStarter.Views.MostPopular();
+		var popularProjects = new PunchStarter.Views.Subcategory({ extension: "most_popular" });
 		this.$('.page-views').append(popularProjects.$el);
 		
-		var successfullyDefunded = new PunchStarter.Views.SuccessfullyDefunded();
+		var successfullyDefunded = new PunchStarter.Views.Subcategory({ extension: "successfully_defunded" });
 		this.$('.page-views').append(successfullyDefunded.$el);
 		
 		return this;

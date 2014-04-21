@@ -1,7 +1,7 @@
 window.PunchStarter.Views.LocationProjects = Backbone.View.extend ({
 	tagName: "li",
 	template: JST["home_page/location_projects"],
-	className: "page-view location-projects",
+	className: "page-view",
 	
 	initialize: function (options) {
 		this.location = options.location;

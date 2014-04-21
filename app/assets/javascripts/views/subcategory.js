@@ -1,12 +1,17 @@
-window.PunchStarter.Views.SuccessfullyDefunded = Backbone.View.extend ({
+window.PunchStarter.Views.Subcategory = Backbone.View.extend ({
 	tagName: "li",
-	template: JST["home_page/successfully_defunded"],
-	className: "page-view successfully-defunded",
+	template: function() {
+		var templateName = "home_page/" + this.extension
+		return JST[templateName];
+	},
+	className: "page-view",
+	
+	initialize: function (options) {
+		this.extension = options.extension;
 		
-	initialize: function () {
 		var _thisView = this;
-		var defunded = new PunchStarter.Collections.Projects([], { extension: "successfully_defunded" });
-		defunded.fetch({
+		var funded = new PunchStarter.Collections.Projects([], { extension: this.extension });
+		funded.fetch({
 			success: function (projects) {
 				_thisView.render(projects);
 			}
