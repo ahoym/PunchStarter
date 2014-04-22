@@ -9,15 +9,12 @@ window.PunchStarter = {
 
 	initialize: function () {
 		PunchStarter.categories = new PunchStarter.Collections.Categories();
-		PunchStarter.categories.fetch({
-			success: function() {
-				new PunchStarter.Routers.AppRouter({
-					$rootEl: $('#content')
-				});
-				Backbone.history.start();
-			},
-			error: function () { debugger }
+		PunchStarter.categories.fetch();
+		
+		new PunchStarter.Routers.AppRouter({
+			$rootEl: $('#content')
 		});
+		Backbone.history.start();
 	}
 };
 
