@@ -5,31 +5,33 @@ div.footer {
 	border-color: lime;
   left:0px;
   bottom:0px;
-  height:220px;
-  width:100%;
+  height:auto;
+  width:auto;
 	position: absolute;
+
+	.footer-list-title {
+		margin: 20px 45px 0px 45px;
+		font-weight: bold;
+		color: white;
+	}
+
+	.footer-list {
+		width: auto;
+		margin: 30px 45px;
+		padding-left: 0;
+		list-style-type: none;
+	}
+
+	.footer-list li{
+		line-height: 20	px;
+	}
+
+	.category-double li{
+	  line-height:1.5em;
+		padding: 0px 0px 0px 10px;
+	  float:left;
+	  display:inline;
+		width: 50%;
+	}
 }
 
-.footer-list-title {
-	margin: 30px 90px 0px 90px;
-	font-weight: bold;
-	color: white;
-}
-
-.footer-list {
-	margin: 0px 90px;
-	padding-left: 0;
-	list-style-type: none;
-}
-
-.footer-list li{
-	line-height: 20	px;
-}
-
-.category-double li{
-  line-height:1.5em;
-	padding: 0px 0px 0px 10px;
-  float:left;
-  display:inline;
-	width: 50%;
-}
