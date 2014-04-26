@@ -24,29 +24,29 @@
 							<b class="caret"></b>
 						</a>
 						<div class="dropdown-menu row">
-							<div class="col-xs-3">
-								<p class="my-stuff-links"><strong>My Stuff</strong></p>
+							<div class="col-xs-6">
 									<ul class="my-stuff-links">
-										<li><a href="/#/oops" class="empty-link">Messages</a></li>
-										<li><a href="/#/oops" class="empty-link">Activity</a></li>
-										<li><a href="/#/oops" class="empty-link">Starred projects</a></li>
+										<li><strong>My Stuff</strong></li>
+										<li><i class="fa fa-envelope-o"></i>  <a href="/#/oops" class="empty-link">Messages</a></li>
+										<li><i class="fa fa-bar-chart-o"></i>  <a href="/#/oops" class="empty-link">Activity</a></li>
+										<li><i class="fa fa-star-o"></i>  <a href="/#/oops" class="empty-link">Starred projects</a></li>
 									</ul><br>
-								<p class="account-links"><strong>Account</strong></p>
 									<ul class="account-links">
-										<li><a href="<%= user_url(current_user)%>">Profile</a></li>
-										<li><a href="/#/oops" class="empty-link">Backer history</a></li>
-										<li><a href="/#/oops" class="empty-link">Settings</a></li>
-										<li><a href="/#/oops" class="empty-link">Find friends</a></li>
+										<li><h5><strong>Account</strong></h5></li>
+										<li><i class="fa fa-user"></i>  <a href="<%= user_url(current_user)%>">Profile</a></li>
+										<li><i class="fa fa-sitemap"></i>  <a href="/#/oops" class="empty-link">Backer history</a></li>
+										<li><i class="fa fa-wrench"></i>  <a href="/#/oops" class="empty-link">Settings</a></li>
+										<li><i class="fa fa-users"></i>  <a href="/#/oops" class="empty-link">Find friends</a></li>
 									</ul><br>
 							</div>
+							
 							<% if logged_in? %>
 								<% if !current_user.created_projects.empty? %>
-								<div class="col-xs-offset-2 col-xs-3">
-									<p class="project-links"><strong>Created projects</strong></p>
+								<div class="col-xs-6">
 									<ul class="project-links">
+										<li><h5><strong>Created projects</strong></h5></li>
 										<% current_user.created_projects.each do |project| %>
-											<li>
-												<a href="<%= api_project_url(project)%>"><%= project.title%></a>
+											<li><i class="fa fa-briefcase"></i>  <a href="<%= api_project_url(project)%>"><%= project.title%></a>
 											</li>
 										<% end %>
 									</ul>

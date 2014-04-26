@@ -39,13 +39,17 @@ ul.user-links li a{
 	list-style-type: none;
 	padding: 3px;
 	padding-left: 0px;
-	margin-right: 170px;
+	margin-right: 20px;
+	
+	li {
+		line-height: 20	px;
+		padding: 3px;
+		margin: 3px;
+	}
 }
 
-ul.my-stuff-links li, ul.account-links li, ul.project-links li{
-	line-height: 20	px;
-	padding: 3px;
-	margin: 3px;
+.dropdown-menu {
+	width: 400px;
 }
 
 div.logout-btn {
