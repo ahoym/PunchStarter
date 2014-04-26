@@ -1,4 +1,4 @@
-PunchStarter
+[PunchStarter](http://punchstarter.herokuapp.com/)
 ==
 
 This is my Clone of kickstarter.com.
@@ -18,4 +18,5 @@ Technical Details
 + Uses PostgreSQL for the database, and of course HTML, CSS, JavaScript for populating content.
 + Enabled client-side "drag-and-drop" picture upload and preview using Filepicker.io API.
 + Fires custom SQL queries to extract specific collections of entries.
-+ After AJAX requests, sends large amounts of nested data using jbuilder back to the front-end.
++ After AJAX requests, sends large amounts of nested JSON data using jbuilder back to the front-end.
++ REST API, including more RESTful actions through collection routes.
