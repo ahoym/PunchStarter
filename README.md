@@ -9,14 +9,15 @@ Projects
 =======
 
 Visitors can browse projects without signing up. However, to make a project, they must sign up.
-Users have the option to "like" and dontae to projects as well.
+Users have the option to "like" and donate to projects as well.
 
 Technical Details
 =================
 
 + Composed of Rails back-end with MVC architecture and Backboone.js front end with MV*.
 + Uses PostgreSQL for the database, and of course HTML, CSS, JavaScript for populating content.
-+ Enabled client-side "drag-and-drop" picture upload and preview using Filepicker.io API.
-+ Fires custom SQL queries to extract specific collections of entries.
-+ After AJAX requests, sends large amounts of nested JSON data using jbuilder back to the front-end.
++ Utilizes jQuery for small UX features.
++ After Backbone AJAX requests, sends large amounts of nested JSON data using jbuilder back to the front-end.
++ Enabled client-side "drag-and-drop" picture upload and preview using Filepicker.io API. Pictures uploaded are stored in Amazon Web Services' (AWS) S3.
++ Fires custom SQL queries to extract specific collections of data entries.
 + REST API, including more RESTful actions through collection routes.
