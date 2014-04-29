@@ -12,11 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
-//= require underscore
 //= require jquery.serializeJSON.min
+//= require underscore
 //= require backbone
 //= require punch_starter
-//= require bootstrap
 //= require_tree ./models
 //= require_tree ./collections
 //= require_tree ../templates
