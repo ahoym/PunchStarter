@@ -10,7 +10,7 @@
 	<div class="col-xs-1"></div>
 	<div class="project-view-window col-xs-10 row">
 		<div class="project-view-body col-xs-8">
-			<img src="<%= project.escape('filepicker_url') %>" width="580" height="500">
+			<img class="lazy" data-original="<%= project.escape('filepicker_url') %>" width="580" height="500">
 			
 			<div class="where-formatting-matters">	
 				<h3><%= project.escape('short_blurb') %></h3>

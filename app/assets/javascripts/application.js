@@ -22,3 +22,18 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree ./helpers
+
+$(window).load(function() {
+	$("img.lazy").lazyload({
+		threshold: 100,
+		effect: "fadeIn"
+	}).removeClass("lazy");
+});
+
+// lazy load for faster page times, perhaps can make this as a callback?
+$(document).ajaxStop(function() {
+	$("img.lazy").lazyload({
+		threshold: 100,
+		effect: "fadeIn"
+	}).removeClass("lazy");
+});

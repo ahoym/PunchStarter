@@ -45,5 +45,10 @@ window.PunchStarter.Views.StaffPicks = Backbone.CompositeView.extend ({
 		var view = this.getView(category);
 		this.$('.staff-change').html(gon.categories[category]);
 		this.$('.staff-pick-project').html(view.render().$el);
+		
+		// Fixes problem where swapping DOM didn't lazyload new picture, but this seems out of place.
+		$("img.lazy").lazyload({
+			effect: "fadeIn"
+		}).removeClass("lazy");
 	}
 });

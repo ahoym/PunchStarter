@@ -1,8 +1,6 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<%= favicon_link_tag 'favicon.ico' %>
-  <title>PunchStarter</title>
 	<%= include_gon %>
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"></link>
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"></link>
@@ -10,7 +8,10 @@
   <script src="http://api.filepicker.io/v1/filepicker.js"></script>
   <script>filepicker.setKey(gon.filepicker_api);</script>
   <%= javascript_include_tag "application" %>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<%= favicon_link_tag 'favicon.ico' %>
+  <title>PunchStarter</title>
   <%= csrf_meta_tags %>
 </head>
 <body>
