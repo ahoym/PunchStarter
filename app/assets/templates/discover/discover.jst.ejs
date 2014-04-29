@@ -16,13 +16,14 @@
 	<div class="col-xs-2 sidebar">
 		<h4 class="category-list">Categories</h4>
 		<ol class="category-list">
-			<% categories.each( function(category) { %>
+			<% for (var key in gon.categories) { %>
+			<%	 if (gon.categories.hasOwnProperty(key)) { %>
 				<li>
-				<a class="category" href="#" data-name="<%= category.get('name') %>">
-						<%= gon.categories[category.get('name')] %>
+				<a class="category" href="#" data-name="<%= key %>">
+						<%= gon.categories[key] %>
 				</a>
 				</li>
-			<% }) %>
+			<% }} %>
 		</ol>
 	</div>
 	</div>

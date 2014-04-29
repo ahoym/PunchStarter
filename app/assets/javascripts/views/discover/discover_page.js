@@ -9,7 +9,7 @@ window.PunchStarter.Views.Discover = Backbone.CompositeView.extend ({
 	render: function () {
 		var renderedContent = this.template({ categories: this.collection });
 		this.$el.html(renderedContent);
-		
+
 		var popularProjects = new PunchStarter.Views.Subcategory({ extension: "most_popular" });
 		this.$('.page-views').append(popularProjects.$el);
 		
