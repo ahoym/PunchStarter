@@ -16,10 +16,28 @@ $primary-color: #EEF2EA;
 }
 
 .staff-picks {
+	min-height: 406px;
+	
 	.staff-change {
 		padding-left: 10px;
 		font-weight: bold;
 		font-style: italic;
+	}
+	
+	a{
+    -webkit-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    transition: 0.5s;
+	}
+	
+	a:hover{
+    -webkit-transform: scale(1.5,1.5);
+    -moz-transform: scale(1.5,1.5);
+    -o-transform: scale(1.5,1.5);
+    -ms-transform: scale(1.5,1.5);
+    transform: scale(1.5,1.5);			
 	}
 	
 	.mid-picture img {

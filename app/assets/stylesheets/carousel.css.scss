@@ -4,9 +4,6 @@
 	overflow: hidden;
 	white-space:nowrap;
 }
-.carousel-control {
-  margin-top: 20px;
-}
 .carousel-inner .item {
   width: 100%;
   height: 520px;
@@ -16,7 +13,7 @@
   background-size: cover;
 }
 .ad1 {
-  background: url("/assets/SlideOne.jpg") no-repeat center center fixed; 
+  background: url("/assets/SlideOne.jpg") no-repeat center center fixed;
 }
 .ad2 {
   background: url("/assets/SlideTwo.jpg") no-repeat center center fixed; 

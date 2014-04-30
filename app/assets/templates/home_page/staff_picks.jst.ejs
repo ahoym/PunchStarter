@@ -10,7 +10,9 @@
 				<% for (var key in gon.categories) { %>
 					<% if (gon.categories.hasOwnProperty(key)) { %>
 					<li>
-						<a href="#" class="sp-category" data-cat="<%= key %>"><%= gon.categories[key] %></a>
+						<a href="#" class="sp-category" data-cat="<%= key %>"><span data-title="<%= gon.categories[key] %>">
+							<%= gon.categories[key] %>
+						</span></a>
 					</li>
 					<% } %>
 				<% } %>

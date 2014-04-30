@@ -38,17 +38,25 @@ window.PunchStarter.Views.StaffPicks = Backbone.CompositeView.extend ({
 	
 	switchView: function (event) {
 		event.preventDefault();
-		this.$('.staff-change').empty();
-		this.$('.staff-pick-project').empty();
 		var category = $(event.currentTarget).data('cat');
-		
 		var view = this.getView(category);
-		this.$('.staff-change').html(gon.categories[category]);
-		this.$('.staff-pick-project').html(view.render().$el);
+		var that = this;
 		
-		// Fixes problem where swapping DOM didn't lazyload new picture, but this seems out of place.
-		$("img.lazy").lazyload({
-			effect: "fadeIn"
-		}).removeClass("lazy");
+		this.$('.staff-change').fadeOut("slow", function () {
+			$(this).empty().promise().done(function() {
+				that.$('.staff-change').html(gon.categories[category]).fadeIn();
+			});
+		});
+		
+		this.$('.staff-pick-project').fadeOut("slow", function () {
+			$(this).empty().promise().done(function() {
+				that.$('.staff-pick-project').html(view.render().$el).fadeIn();
+			
+				// Fixes problem where swapping DOM didn't lazyload new picture, but this seems out of place.
+				$("img.lazy").lazyload({
+					effect: "fadeIn"
+				}).removeClass("lazy");
+			});
+		});
 	}
 });
