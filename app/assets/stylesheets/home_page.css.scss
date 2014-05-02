@@ -24,6 +24,11 @@ $primary-color: #EEF2EA;
 		font-style: italic;
 	}
 	
+	ul.nav a:hover{
+		padding: 0px;
+		background-color: #fff !important;
+	}
+	
 	a{
     -webkit-transition: 0.5s;
     -moz-transition: 0.5s;
@@ -32,12 +37,12 @@ $primary-color: #EEF2EA;
     transition: 0.5s;
 	}
 	
-	a:hover{
-    -webkit-transform: scale(1.5,1.5);
-    -moz-transform: scale(1.5,1.5);
-    -o-transform: scale(1.5,1.5);
-    -ms-transform: scale(1.5,1.5);
-    transform: scale(1.5,1.5);			
+	a:hover a:active{
+    -webkit-transform: scale(1.0,1.0);
+    -moz-transform: scale(1.0,1.0);
+    -o-transform: scale(1.0,1.0);
+    -ms-transform: scale(1.0,1.0);
+    transform: scale(1.0,1.0);			
 	}
 	
 	.mid-picture img {
