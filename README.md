@@ -19,5 +19,5 @@ Technical Details
 + Utilizes jQuery for small UX features.
 + After Backbone AJAX requests, sends large amounts of nested JSON data using jbuilder back to the front-end.
 + Enabled client-side "drag-and-drop" picture upload and preview using Filepicker.io API. Pictures uploaded are stored in Amazon Web Services' (AWS) S3.
-+ Fires custom SQL queries to extract specific collections of data entries.
++ Fires custom SQL queries to extract specific collections of data entries. (app/controllers/api/projects_controller.rb)
 + REST API, including more RESTful actions through collection routes.
