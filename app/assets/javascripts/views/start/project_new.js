@@ -9,7 +9,7 @@ window.PunchStarter.Views.NewProject = Backbone.View.extend ({
 						"keyup .new-project-short-blurb": "handleBlurb",
 						"keyup input.new-project-location": "handleLocation",
 						"change input.project-image": "handleImage"
-					},
+	},
 	
 	render: function () {
 		var renderedContent = this.template({ project: this.model });

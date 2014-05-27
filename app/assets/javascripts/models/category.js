@@ -1,7 +1,9 @@
+"use strict";
+
 window.PunchStarter.Models.Category = Backbone.Model.extend ({
 	urlRoot: "/api/categories",
 	
-	projects: function () {
+	projects: function() {
 		if (!this._projects) {
 			this._projects = new PunchStarter.Collections.Projects([], { category: this });
 		}
@@ -9,7 +11,7 @@ window.PunchStarter.Models.Category = Backbone.Model.extend ({
 		return this._projects;
 	},
 	
-	parse: function (jsonResp) {
+	parse: function(jsonResp) {
     if (jsonResp.projects) {
       this.projects().set(jsonResp.projects, { parse: true });
       delete jsonResp.projects;

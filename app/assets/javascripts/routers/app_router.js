@@ -13,23 +13,23 @@ window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 		"projects/:id/:category": "showProject"
 	},
 	
-	initialize: function (options) {
+	initialize: function(options) {
 		this.$rootEl = options.$rootEl;
 	},
 	
-	homePage: function () {
+	homePage: function() {
 		var homePageView = new PunchStarter.Views.HomePage();
 		this._swapView(homePageView);
 	},
 	
-	discoverPage: function () {
+	discoverPage: function() {
 		var discoverView = new PunchStarter.Views.Discover({ 
 			collection: PunchStarter.categories
 		});
 		this._swapView(discoverView);
 	},
 	
-	newProject: function () {
+	newProject: function() {
 		var project = new PunchStarter.Models.Project();
 		var newProjectView = new PunchStarter.Views.NewProject({
 			model: project
@@ -37,7 +37,7 @@ window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 		this._swapView(newProjectView);
 	},
 	
-	newProjectBody: function (id, category) {
+	newProjectBody: function(id, category) {
 		var projectCategory = PunchStarter.categories.getOrFetch(category);
 		var project = projectCategory.projects().get(id);
 		
@@ -47,7 +47,8 @@ window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 		this._swapView(projectBodyView);
 	},
 	
-	showProject: function (id, category) {
+	showProject: function(id, category) {
+		debugger
 		var projectCategory = PunchStarter.categories.getOrFetch(category);
 		var project = projectCategory.projects().get(id);
 		var projectsShowView = new PunchStarter.Views.ProjectsShow({
@@ -56,7 +57,7 @@ window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 		this._swapView(projectsShowView);
 	},
 	
-	newBacking: function (id, category) {
+	newBacking: function(id, category) {
 		var projectCategory = PunchStarter.categories.getOrFetch(category);
 		var project = projectCategory.projects().get(id);
 				
@@ -66,12 +67,12 @@ window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 		this._swapView(newBackingView);
 	},
 	
-	emptyLink: function () {
+	emptyLink: function() {
 		var emptyLink = new PunchStarter.Views.NothingHere();
 		this._swapView(emptyLink);
 	},
 	
-	_swapView: function (view) {
+	_swapView: function(view) {
 		if (this._currentView) {
 			this._currentView.remove();
 		}

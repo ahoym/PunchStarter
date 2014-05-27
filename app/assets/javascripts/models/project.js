@@ -4,7 +4,7 @@
 window.PunchStarter.Models.Project = Backbone.Model.extend ({
 	urlRoot: "/api/projects",
 	
-  toJSON: function () {
+  toJSON: function() {
     var json = Backbone.Model.prototype.toJSON.call(this);
 
     delete json.id;
@@ -14,7 +14,7 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
     return json;
   },
 	
-	parse: function (jsonResp) {
+	parse: function(jsonResp) {
     if (jsonResp.project_body) {
       this.projectBody().set(jsonResp.project_body, { parse: true });
       delete jsonResp.project_body;
@@ -43,7 +43,7 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
     return jsonResp;
 	},
 	
-	projectBody: function () {
+	projectBody: function() {
 		if (!this._projectBody) {
 			this._projectBody = new PunchStarter.Models.ProjectBody({}, {
 				project: this
@@ -53,7 +53,7 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
 		return this._projectBody;
 	},
 	
-	backings: function () {
+	backings: function() {
 		if (!this._backings) {
 			this._backings = new PunchStarter.Collections.Backings([], {
 				project: this
@@ -63,7 +63,7 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
 		return this._backings;
 	},
 	
-	amountFunded: function () {
+	amountFunded: function() {
 		var total = 0;
 		
 		_(this.backings().models).each ( function(backing) {
@@ -73,11 +73,11 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
 		return total;
 	},
 	
-	numBackers: function () {
+	numBackers: function() {
 		return this.backings().models.length;
 	},
 	
-	stars: function () {
+	stars: function() {
 		if (!this._stars) {
 			this._stars = new PunchStarter.Collections.Stars([], {
 				project: this
@@ -87,7 +87,7 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
 		return this._stars;
 	},
 	
-	creator: function () {
+	creator: function() {
 		if (!this._creator) {
 			this._creator = new PunchStarter.Models.User({ id: gon.currentUserId });
 		}
@@ -103,30 +103,30 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
 		return this._category;
 	},
 
-	startDate: function () {
+	startDate: function() {
 		return new Date(this.escape('created_at'));
 	},
 	
-	endDate: function () {
+	endDate: function() {
 		var startDate = this.startDate();
 		var endDate = new Date();
 		endDate.setDate(startDate.getDate() + parseInt(this.escape('funding_duration')));
 		return endDate;
 	},
 	
-	fundingPeriod: function () {
+	fundingPeriod: function() {
 		var startDate = this.startDate();
 		var endDate = this.endDate();
 		
 		return this.convertTime(startDate) + " - " + this.convertTime(endDate);
 	},
 	
-	daysLeft: function () {
+	daysLeft: function() {
 		var today = new Date();
 		return Math.floor((this.endDate().getTime() - today.getTime()) / (1000 * 60 * 60 * 24));
 	},
 	
-	convertTime: function (date) {
+	convertTime: function(date) {
 		var monthNames = [ "Jan", "Feb", "Mar", "Apr", "May", "Jun",
 		    "Jul", "Aug", "Sep", "Oct", "Nov", "Dec" ];
 		var month = monthNames[date.getUTCMonth()];
@@ -136,7 +136,7 @@ window.PunchStarter.Models.Project = Backbone.Model.extend ({
 		return month + " " + day + ", " + year;
 	},
 	
-	percentFunded: function () {
+	percentFunded: function() {
 		return Math.round(parseFloat(this.amountFunded()) / parseFloat(this.escape('funding_goal')) * 100);
 	}
 });

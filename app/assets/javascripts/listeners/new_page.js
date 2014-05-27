@@ -1,3 +1,5 @@
+// Note, this is only loaded on the signup/login page (See the html page)! Not included in application.js.
+
 /* globals window, PunchStarter:true */
 "use strict"
 
