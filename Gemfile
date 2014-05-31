@@ -18,11 +18,9 @@ group :development do
   gem 'annotate'
 end
 
-gem 'jquery-rails'
+gem 'jquery-rails-cdn'
 gem 'jbuilder', '~> 1.2'
 gem 'ejs'
-gem 'underscore-rails'
-gem 'backbone-on-rails'
 gem 'gon'
 gem 'thread_safe', '0.2.0'
 gem 'kaminari'

@@ -48,7 +48,6 @@ window.PunchStarter.Routers.AppRouter = Backbone.Router.extend ({
 	},
 	
 	showProject: function(id, category) {
-		debugger
 		var projectCategory = PunchStarter.categories.getOrFetch(category);
 		var project = projectCategory.projects().get(id);
 		var projectsShowView = new PunchStarter.Views.ProjectsShow({

@@ -2,14 +2,21 @@
 <html>
 <head>
 	<%= include_gon %>
+	<!-- stylesheets -->
 	<link href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.css" rel="stylesheet"></link>
 	<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet"></link>
 	<%= stylesheet_link_tag "application", :media => "all" %>
-  <script src="http://api.filepicker.io/v1/filepicker.js"></script>
-  <script>filepicker.setKey(gon.filepicker_api);</script>
-  <%= javascript_include_tag "application" %>
+	
+	<!-- scripts -->
+	<script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
 	<script src="//cdnjs.cloudflare.com/ajax/libs/jquery.lazyload/1.9.1/jquery.lazyload.js"></script>
 	<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.6.0/underscore-min.js"></script>
+	<script src="//cdnjs.cloudflare.com/ajax/libs/backbone.js/1.1.2/backbone-min.js"></script>
+  <script src="http://api.filepicker.io/v1/filepicker.js"></script>
+  <script>filepicker.setKey(gon.filepicker_api);</script>
+	<%= javascript_include_tag "application" %>
+
 	<%= favicon_link_tag 'favicon.ico' %>
   <title>PunchStarter</title>
   <%= csrf_meta_tags %>
